@@ -5,18 +5,38 @@ using UnityEngine;
 
 public class LockScript : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0, 9)]
-    private int numOne, numTwo, numThree;
+    [SerializeField] private int[] num;
 
-    [SerializeField] private int correctOne, correctTwo, correctThree;
-    [SerializeField] private TMP_Text numTextOne, numTextTwo, numTextThree;
+    [SerializeField] private int[] correctNums;
+    [SerializeField] private TMP_Text[] numTexts;
 
     void Start()
     {
-        
+
     }
 
+    public void IncreaseNum(int x)
+    {
+        if (num[x] >= 0 && num[x] < 9)
+        {
+            num[x]++;
+            ChangeText(x);
+        }
+    }
+
+    public void DecreaseNum(int x)
+    {
+        if (num[x] > 0 && num[x] <= 9)
+        {
+            num[x]--;
+            ChangeText(x);
+        }
+    }
+
+    private void ChangeText(int x)
+    {
+        numTexts[x].text = num[x].ToString();
+    }
 
 
     void Update()

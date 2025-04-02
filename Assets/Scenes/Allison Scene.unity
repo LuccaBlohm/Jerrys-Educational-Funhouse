@@ -203,7 +203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 142906533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: IncreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &142906533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +633,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 734720386}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: IncreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &734720386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,7 +902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 822682777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: DecreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &822682777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,7 +1068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 962283546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: IncreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &962283546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,15 +1200,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbea280e1250144d886475233644ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOne: 0
-  numTwo: 0
-  numThree: 0
-  correctOne: 0
-  correctTwo: 0
-  correctThree: 0
-  numTextOne: {fileID: 1440862903}
-  numTextTwo: {fileID: 558598543}
-  numTextThree: {fileID: 1161537137}
+  num: 000000000000000000000000
+  correctNums: 000000000000000000000000
+  numTexts:
+  - {fileID: 1440862903}
+  - {fileID: 558598543}
+  - {fileID: 1161537137}
 --- !u!1 &1161537135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1421,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1164318928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: DecreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1164318928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,7 +1849,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738287271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1137239280}
+        m_TargetAssemblyTypeName: LockScript, Assembly-CSharp
+        m_MethodName: DecreaseNum
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1738287271
 MonoBehaviour:
   m_ObjectHideFlags: 0
