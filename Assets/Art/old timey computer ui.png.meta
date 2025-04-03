@@ -113,10 +113,10 @@ TextureImporter:
       name: old timey computer ui_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 8
-        height: 24
+        x: 83
+        y: 37
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45d5c48dd4e618040b85471167a5110d
-      internalID: -1105861769
+      spriteID: 0a817f8918fa97b4dade4475fa0ea4e7
+      internalID: -1115714129
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: old timey computer ui_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 32
-        width: 24
-        height: 24
+        x: 102
+        y: 37
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df0ba15689a28f543be2855dfe57338c
-      internalID: -111723255
+      spriteID: 0d73de34e33442c4eb2ce39d4c22cd7c
+      internalID: 904809612
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: old timey computer ui_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 40
-        height: 24
+        x: 83
+        y: 17
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d72a98d4059963d4ea17c90133bbf7e4
-      internalID: -1411105364
+      spriteID: f2e0b521f3f7fe546a30a29483b94d95
+      internalID: -937043910
       vertices: []
       indices: 
       edges: []
@@ -176,10 +176,10 @@ TextureImporter:
       name: old timey computer ui_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 8
-        height: 24
+        x: 102
+        y: 17
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9050def8b48add249a510753d72b782c
-      internalID: 1912297022
+      spriteID: c8c96778e06704542851f36c8bd1dfd0
+      internalID: -737639952
       vertices: []
       indices: 
       edges: []
@@ -197,9 +197,9 @@ TextureImporter:
       name: old timey computer ui_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 8
-        width: 6
+        x: 24
+        y: 32
+        width: 24
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,14 +208,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3e5e2db905ec345b3d75dc64e17fb2
-      internalID: 766849898
+      spriteID: aa7c9ed4481accb4ebb9596627906981
+      internalID: 2098112354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: old timey computer ui_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da91a205ba7a104c81c523233c68ea9
+      internalID: -1879474831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb22ef9dc56b81468ecdcc24871d773
+      internalID: -1940901244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a312505b1f09384ba3604f8ce432980
+      internalID: 1469985740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_9
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 26
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fba994806620945aa9d7cf772aef8a
+      internalID: -15135939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcda1353b3256c94b945a9ad16739848
+      internalID: 388586637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_11
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45c3932bcfdae144a8e2d4626825950
+      internalID: 1365010942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old timey computer ui_12
       rect:
         serializedVersion: 2
         x: 0
@@ -229,50 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f0b9b7815b1264992eab9315bbd00a
-      internalID: 1559319459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: old timey computer ui_7
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 24
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ccc63a5be4a99848ad972673ec08f42
-      internalID: 2140244205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: old timey computer ui_8
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b4a0702d7bbb1d46a24d0a4a8f94da9
-      internalID: -181455092
+      spriteID: 237a83d8f86ef384f8c6403ac7e60a19
+      internalID: -2074895478
       vertices: []
       indices: 
       edges: []
@@ -288,15 +372,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      old timey computer ui_0: -1105861769
-      old timey computer ui_1: -111723255
-      old timey computer ui_2: -1411105364
-      old timey computer ui_3: 1912297022
-      old timey computer ui_4: 1405735251
-      old timey computer ui_5: 766849898
-      old timey computer ui_6: 1559319459
-      old timey computer ui_7: 2140244205
-      old timey computer ui_8: -181455092
+      old timey computer ui_0: -1115714129
+      old timey computer ui_1: 904809612
+      old timey computer ui_10: 388586637
+      old timey computer ui_11: 1365010942
+      old timey computer ui_12: -2074895478
+      old timey computer ui_2: -937043910
+      old timey computer ui_3: -737639952
+      old timey computer ui_4: 1469985740
+      old timey computer ui_5: 2098112354
+      old timey computer ui_6: -1879474831
+      old timey computer ui_7: -1940901244
+      old timey computer ui_8: 1344996453
+      old timey computer ui_9: -15135939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
