@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WindowUIManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class WindowUIManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler
 {
 
     Canvas parent;
@@ -25,10 +25,14 @@ public class WindowUIManager : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         Destroy(gameObject);
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    // sends window to front when clicked
+    public void OnPointerDown(PointerEventData eventData)
     {
         gameObject.transform.SetAsLastSibling();
+    }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
         if (eventData.rawPointerPress.tag == "Resizable")
         {
             resizing = true;
@@ -39,6 +43,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             resizeDirection = new Vector2(1, 1); 
 
             // checks which corner is being dragged
+            // to ensure correct resize direction and behavior
             switch (resizePoint)
             {
                 case "top left corner":
