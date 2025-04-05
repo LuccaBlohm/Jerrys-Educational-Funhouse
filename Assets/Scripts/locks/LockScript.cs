@@ -7,6 +7,7 @@ public class LockScript : MonoBehaviour
 {
     [SerializeField] private int[] num;
 
+    [SerializeField] private bool[] isCorrect = { false, false, false };
     [SerializeField] private int[] correctNums;
     [SerializeField] private TMP_Text[] numTexts;
 
@@ -36,6 +37,22 @@ public class LockScript : MonoBehaviour
     private void ChangeText(int x)
     {
         numTexts[x].text = num[x].ToString();
+    }
+
+    public void CheckLock()
+    {
+        Debug.Log(num.Length);
+        for (int i = 0; i <= num.Length - 1; i++)
+        {
+            if (num[i] == correctNums[i])
+            {
+                isCorrect[i] = true;
+            }
+            else
+            {
+                isCorrect[i] = false;
+            }
+        }
     }
 
 
