@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class CursorBehavior : MonoBehaviour, IPointerEnterHandler
+public class CursorBehavior : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
 {
     // Put this script on the canvas of the scene
 
     PlayerInput pi;
     InputAction cursorLockToggle;
+
+    string resizePoint;
 
     [SerializeField] Texture2D[] cursors;
     int cursorSelector;
@@ -34,11 +36,6 @@ public class CursorBehavior : MonoBehaviour, IPointerEnterHandler
         Cursor.SetCursor(cursors[0], hotspot, CursorMode.Auto);
     }
 
-    private void mouseState()
-    {
-
-    }
-
     private void cursorLock()
     {
         if (cursorLockToggle.WasPressedThisFrame() && Cursor.lockState == CursorLockMode.Locked)
@@ -59,8 +56,64 @@ public class CursorBehavior : MonoBehaviour, IPointerEnterHandler
         cursorLock();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerMove(PointerEventData eventData)
     {
-        
+        if (eventData.pointerEnter != null)
+        {
+            // checks if hovering over resizable area
+            if (eventData.pointerEnter.tag == "Resizable" && !Input.GetMouseButton(0))
+            {
+                hotspot = new Vector2(18, 18);
+                resizePoint = eventData.pointerEnter.ToString();
+                resizePoint = resizePoint.Substring(0, resizePoint.Length - 25);
+
+                switch (resizePoint)
+                {
+                    case "top resize":
+                    case "bottom":
+                        Cursor.SetCursor(cursors[2], hotspot, CursorMode.Auto);
+                        break;
+
+                    case "left":
+                    case "right":
+                        Cursor.SetCursor(cursors[3], hotspot, CursorMode.Auto);
+                        break;
+
+                    case "top right corner":
+                    case "bottom left":
+                        Cursor.SetCursor(cursors[4], hotspot, CursorMode.Auto);
+                        break;
+
+                    case "top left corner":
+                    case "bottom right":
+                        Cursor.SetCursor(cursors[5], hotspot, CursorMode.Auto);
+                        break;
+                }
+            }
+            else if (eventData.pointerEnter.tag == "Clickable")
+            {
+                Cursor.SetCursor(cursors[1], hotspot, CursorMode.Auto);
+            }
+            else if (!Input.GetMouseButton(0))
+            {
+                hotspot = new Vector2(8, 0);
+                Cursor.SetCursor(cursors[0], hotspot, CursorMode.Auto);
+            }
+
+        }else
+        {
+            hotspot = new Vector2(8, 0);
+            Cursor.SetCursor(cursors[0], hotspot, CursorMode.Auto);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!Input.GetMouseButton(0))
+        {
+            hotspot = new Vector2(8, 0);
+            Cursor.SetCursor(cursors[0], hotspot, CursorMode.Auto);
+        }
+
     }
 }
