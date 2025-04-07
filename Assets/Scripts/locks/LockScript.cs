@@ -11,9 +11,19 @@ public class LockScript : MonoBehaviour
     [SerializeField] private int[] correctNums;
     [SerializeField] private TMP_Text[] numTexts;
 
+    private LockedDoor lockedDoor;
+
     void Start()
     {
 
+    }
+
+    // allows locked door that spawned this pop up to access methods
+    // also sets lock based on locked door
+    public void connectDoor(LockedDoor door, int[] combo)
+    {
+        lockedDoor = door;
+        correctNums = combo;
     }
 
     public void IncreaseNum(int x)
@@ -61,10 +71,21 @@ public class LockScript : MonoBehaviour
             else
             {
                 isCorrect[i] = false;
+                return;
             }
         }
+
+        Destroy(lockedDoor.gameObject);
     }
 
+    private void OnDestroy()
+    {
+        if(lockedDoor != null)
+        {
+            lockedDoor.disconnectPopUp();
+        }
+
+    }
 
     void Update()
     {

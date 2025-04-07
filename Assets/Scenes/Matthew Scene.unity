@@ -2760,8 +2760,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf2dd81462a7f5428eae1c252683378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 4
+  playerTransform: {fileID: 90440317}
   popup: {fileID: 5933650446229486718, guid: 3fd68d453758bfe4bb6d4b6747c9bb07, type: 3}
   canvasTransform: {fileID: 1029248016}
+  lockPopUpConnection: {fileID: 0}
+  lockCombo: 040000000700000003000000
 --- !u!1 &1276954056
 GameObject:
   m_ObjectHideFlags: 0
