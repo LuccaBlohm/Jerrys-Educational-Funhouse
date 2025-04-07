@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public float jumpForce;
 
     public Transform orientation;
 
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAction Interact;
 
+    private InputAction Jump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         Turning = playerInput.currentActionMap.FindAction("Turning");
         Interact = playerInput.currentActionMap.FindAction("Interact");
         Interact.performed += ctx => TryInteract();
+        Jump = playerInput.currentActionMap.FindAction("Jump");
+        Jump.performed += ctx => TryJump();
     }
 
     // Update is called once per frame
@@ -59,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
                 return; // Will only interacts with the first object found
             }
         }
+    }
+
+    private void TryJump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
 }
