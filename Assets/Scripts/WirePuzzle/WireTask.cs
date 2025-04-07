@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class WireTask : MonoBehaviour
 {
-    public List<Color> _wireColors = new List<Color>();
-    public List<Wire> _leftWires = new List<Wire>();
-    public List<Wire> _rightWires = new List<Wire>();
-
-    public Wire CurrentDraggedWire;
-    public Wire CurrentHoveredWire;
-
-    public bool IsTaskCompleted = false;
-
+    [SerializeField] private List<Color> _wireColors = new List<Color>();
+    [SerializeField] private List<Wire> _leftWires = new List<Wire>();
+    [SerializeField] private List<Wire> _rightWires = new List<Wire>();
     private List<Color> _availableColors;
-
     private List<int> _availableLeftWireIndex;
-
     private List<int> _availableRightWireIndex;
 
     private void Start()
     {
         _availableColors = new List<Color>(_wireColors);
-        _availableLeftWireIndex = new List<int>();
-        _availableRightWireIndex = new List<int>();
+        _availableLeftWireIndex = new List<int> ();
+        _availableRightWireIndex = new List<int> ();
 
         for (int i = 0; i < _leftWires.Count; i++)
         {
@@ -35,43 +27,16 @@ public class WireTask : MonoBehaviour
         }
         while (_availableColors.Count > 0 && _availableLeftWireIndex.Count > 0 && _availableRightWireIndex.Count > 0)
         {
-            Color pickColor = _availableColors[Random.Range(0, _availableColors.Count)];
-            int pickLeftWireIndex = Random.Range (0, _availableLeftWireIndex.Count);
-            int pickRightWireIndex = Random.Range(0, _availableRightWireIndex.Count);
+            Color pickedColor = _availableColors[Random.Range(0, _availableColors.Count)];
+            int pickedLeftWireIndex = Random.Range(0, _availableLeftWireIndex.Count);
+            int pickedRightWireIndex = Random.Range(0, _availableRightWireIndex.Count);
 
-            _leftWires[_availableLeftWireIndex[pickLeftWireIndex]].SetColor(pickColor);
-            _rightWires[_availableRightWireIndex[pickRightWireIndex]].SetColor (pickColor);
+            _leftWires[_availableLeftWireIndex[pickedLeftWireIndex]].SetColor(pickedColor);
+            _rightWires[_availableRightWireIndex[pickedRightWireIndex]].SetColor (pickedColor);
 
-            _availableColors.Remove(pickColor);
-            _availableLeftWireIndex.RemoveAt(pickLeftWireIndex);
-            _availableRightWireIndex.RemoveAt(pickRightWireIndex);
-
-        }
-        StartCoroutine(CheckTaskCompletion());
-    }
-
-    private IEnumerator CheckTaskCompletion()
-    {
-        while(IsTaskCompleted)
-        {
-            int successfulWires = 0;
-            for (int i = 0; i < _rightWires.Count; i++)
-            {
-                if (_rightWires[i].IsSuccess)
-                {
-                    successfulWires++;
-                }
-            }
-            if (successfulWires >= _rightWires.Count)
-            {
-                Debug.Log("Task Completed");
-            }
-            else
-            {
-                Debug.Log("Task Incompleted");
-            }
-
-            yield return new WaitForSeconds(0.5f);
+            _availableColors.Remove(pickedColor);
+            _availableLeftWireIndex.RemoveAt(pickedLeftWireIndex);
+            _availableRightWireIndex.RemoveAt(pickedRightWireIndex);
         }
     }
 }
