@@ -25,7 +25,6 @@ public class PortalTeleporterScript : MonoBehaviour
 
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = receiver.position + positionOffset;
-
                 playerOverlap = false;
             }
         }
