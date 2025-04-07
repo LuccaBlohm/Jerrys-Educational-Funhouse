@@ -168,7 +168,7 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if (eventData.pointerCurrentRaycast.gameObject != null)
+        if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerEnter != null)
         {
             // state behaviors
             switch (cursorState)
@@ -203,6 +203,12 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
                         {
                             manageCursorState(cursorSelect.pointer);
                         }
+                    }
+                    break;
+                case cursorSelect.eye:
+                    if (Cursor.lockState != CursorLockMode.Locked)
+                    {
+                        manageCursorState(cursorSelect.pointer);
                     }
                     break;
             }
