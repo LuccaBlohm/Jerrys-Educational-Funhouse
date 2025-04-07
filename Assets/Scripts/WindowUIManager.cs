@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WindowUIManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler
+public class WindowUIManager : MonoBehaviour, IDragHandler,
+                                              IBeginDragHandler, 
+                                              IEndDragHandler,
+                                              IPointerDownHandler
 {
 
     Canvas parent;
