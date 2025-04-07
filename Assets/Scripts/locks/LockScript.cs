@@ -23,6 +23,11 @@ public class LockScript : MonoBehaviour
             num[x]++;
             ChangeText(x);
         }
+        else
+        {
+            num[x] = 0;
+            ChangeText(x);
+        }
     }
 
     public void DecreaseNum(int x)
@@ -30,6 +35,11 @@ public class LockScript : MonoBehaviour
         if (num[x] > 0 && num[x] <= 9)
         {
             num[x]--;
+            ChangeText(x);
+        }
+        else
+        {
+            num[x] = 9;
             ChangeText(x);
         }
     }
