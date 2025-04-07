@@ -52,7 +52,6 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
         pi = GetComponent<PlayerInput>();
         cursorLockToggle = pi.currentActionMap.FindAction("CursorLockToggle");
 
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.SetCursor(cursors[(int)cursorSelect.pointer], hotspot, CursorMode.Auto);
 
         cursorState = cursorSelect.pointer;

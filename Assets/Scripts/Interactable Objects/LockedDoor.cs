@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class LockedDoor : Interactable
 {
-    [SerializeField] private GameObject popup;
-    [SerializeField] private Transform canvasTransform;
+    [SerializeField] protected GameObject popup;
+    [SerializeField] protected Transform canvasTransform;
+    [SerializeField] LockScript lockPopUpConnection;
+    [SerializeField] int[] lockCombo;
+
+    bool popUpOn;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +18,27 @@ public class LockedDoor : Interactable
     }
 
     // bug: this ignores ui over it
-    // also range goes off canvas
+    // spawns pop up upon click
     private void OnMouseDown()
     {
-        Instantiate(popup, new Vector2(Random.Range(0, 1000), Random.Range(0, 1000)),
-                    Quaternion.identity,
-                    canvasTransform);
+        if (!popUpOn && range >= distanceFromPlayer())
+        {
+            lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 1000),
+                                                                Random.Range(0, 520)),
+                                    Quaternion.identity,
+                                    canvasTransform).GetComponent<LockScript>();
+
+
+
+            lockPopUpConnection.connectDoor(GetComponent<LockedDoor>(), lockCombo);
+            popUpOn = true;
+        }
+    }
+
+    // allows object to be clicked again to spawn another pop up
+    public void disconnectPopUp()
+    {
+        popUpOn = false;
     }
 
     // Update is called once per frame
