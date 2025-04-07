@@ -11265,6 +11265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  jumpForce: 25
   orientation: {fileID: 1888549581}
   playerInput: {fileID: 807380826}
   interactRange: 2

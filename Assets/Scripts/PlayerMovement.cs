@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAction Jump;
 
+    private bool canJump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +70,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryJump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+        {
+            // If the ray hits something within a distance of 1.1f, the player is grounded
+            if (hit.distance < 2f)
+            {
+                // Apply the jump force
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+        }
     }
 
 }
