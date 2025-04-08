@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+    public bool isInWaterEffectZone;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -79,6 +81,22 @@ public class PlayerMovement : MonoBehaviour
                 // Apply the jump force
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WaterEffectZone"))
+        {
+            isInWaterEffectZone = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("WaterEffectZone"))
+        {
+            isInWaterEffectZone = false;
         }
     }
 

@@ -7,6 +7,7 @@ TagManager:
   - Draggable
   - Resizable
   - Clickable
+  - WaterEffectZone
   layers:
   - Default
   - TransparentFX
