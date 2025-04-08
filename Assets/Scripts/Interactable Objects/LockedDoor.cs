@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockedDoor : MonoBehaviour, IInteractable
+public class LockedDoor : MonoBehaviour, IInteractable, IPopUpSpawner
 {
     [SerializeField] protected GameObject popup;
     [SerializeField] protected Transform canvasTransform;
@@ -45,14 +45,19 @@ public class LockedDoor : MonoBehaviour, IInteractable
                                     canvasTransform).GetComponent<LockScript>();
 
 
-
-            lockPopUpConnection.connectDoor(GetComponent<LockedDoor>(), lockCombo);
+            lockPopUpConnection.ConnectToOrigin(gameObject);
+            lockPopUpConnection.PassLockCombo(lockCombo);
             popUpOn = true;
         }
     }
 
+    public void ComboCorrect()
+    {
+        Destroy(gameObject);
+    }
+
     // allows object to be clicked again to spawn another pop up
-    public void disconnectPopUp()
+    public void DisconnectPopUp()
     {
         popUpOn = false;
     }

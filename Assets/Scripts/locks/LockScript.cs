@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LockScript : MonoBehaviour
+public class LockScript : WindowUIManager
 {
     [SerializeField] private int[] num;
 
@@ -13,16 +13,31 @@ public class LockScript : MonoBehaviour
 
     private LockedDoor lockedDoor;
 
-    void Start()
+    private void Awake()
     {
+        parent = gameObject.transform.parent.GetComponent<Canvas>();
+        rectTransform = GetComponent<RectTransform>();
+    }
 
+    public override void ConnectToOrigin(GameObject origin)
+    {
+        base.ConnectToOrigin(origin);
+
+        if (origin != null)
+        {
+            LockedDoor door = origin.GetComponent<LockedDoor>();
+
+            if (door != null)
+            {
+                lockedDoor = door.GetComponent<LockedDoor>();
+            }
+        }
     }
 
     // allows locked door that spawned this pop up to access methods
     // also sets lock based on locked door
-    public void connectDoor(LockedDoor door, int[] combo)
+    public void PassLockCombo(int[] combo)
     {
-        lockedDoor = door;
         correctNums = combo;
     }
 
@@ -75,14 +90,9 @@ public class LockScript : MonoBehaviour
             }
         }
 
-        Destroy(lockedDoor.gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        if(lockedDoor != null)
+        if (lockedDoor != null)
         {
-            lockedDoor.disconnectPopUp();
+            lockedDoor.ComboCorrect();
         }
 
     }

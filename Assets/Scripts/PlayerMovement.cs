@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canJump;
 
+    private InputAction Pause;
+    [SerializeField] private GameObject PausePopUp;
+    static public bool GamePaused;
+
     public float sensX;
     public float sensY;
 
@@ -47,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         Interact.performed += ctx => TryInteract();
         Jump = playerInput.currentActionMap.FindAction("Jump");
         Jump.performed += ctx => TryJump();
+        Pause = playerInput.currentActionMap.FindAction("Pause");
+        Pause.performed += ctx => PauseGame();
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -145,4 +151,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void PauseGame()
+    {
+
+        if (!GamePaused)
+        {
+            GamePaused = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+
+            PausePopUp.SetActive(true);
+        }
+
+    }
 }
