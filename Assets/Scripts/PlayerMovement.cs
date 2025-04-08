@@ -84,17 +84,20 @@ public class PlayerMovement : MonoBehaviour
 
     private IInteractable checkForInteractable()
     {
-        Ray ray = camComponent.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        if (!GamePaused)
+        {
+            Ray ray = camComponent.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, interactRange) && hit.transform.tag == "Clickable")
-        {
-            CursorBehavior.objectClickable = true;
-            return hit.transform.GetComponent<IInteractable>();
-        }
-        else
-        {
-            CursorBehavior.objectClickable = false;
+            if (Physics.Raycast(ray, out hit, interactRange) && hit.transform.tag == "Clickable")
+            {
+                CursorBehavior.objectClickable = true;
+                return hit.transform.GetComponent<IInteractable>();
+            }
+            else
+            {
+                CursorBehavior.objectClickable = false;
+            }
         }
 
         return null;
@@ -159,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
         if (!GamePaused)
         {
             GamePaused = true;
+            PausePopUp.transform.SetAsLastSibling();
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
 
