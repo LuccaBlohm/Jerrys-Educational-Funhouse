@@ -1688,11 +1688,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3640459603875446514, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5900660938209579209}
+    - target: {fileID: 3640459603875446514, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseWindow
+      objectReference: {fileID: 0}
     - target: {fileID: 7666707354240482136, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_Name
       value: Lock Pop Up Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8569114860032953324, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5900660938209579209}
+    - target: {fileID: 8569114860032953324, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseWindow
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6636262840654837508, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1461090386578128876, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
     m_AddedGameObjects:
@@ -1726,6 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbea280e1250144d886475233644ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransformMinSize: {x: 140, y: 50}
   num: 000000000000000000000000
   isCorrect: 000000
   correctNums: 000000000000000000000000

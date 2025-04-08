@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public interface IPopUpSpawner
+{
+    // Behavior for managing connections between pop ups and interactables
+    public void DisconnectPopUp();
+}
+
 public class WindowUIManager : MonoBehaviour, IDragHandler,
                                               IBeginDragHandler, 
                                               IEndDragHandler,
                                               IPointerDownHandler
 {
 
-    Canvas parent;
-    RectTransform rectTransform;
-    bool dragging;
-    bool resizing;
-    string resizePoint;
-    Vector2 resizeDirection;
-    [SerializeField] private Vector2 rectTransformMinSize;
+    protected Canvas parent;
+    protected RectTransform rectTransform;
+    protected bool dragging;
+    protected bool resizing;
+    protected string resizePoint;
+    protected Vector2 resizeDirection;
+    [SerializeField] protected Vector2 rectTransformMinSize;
+
+    protected GameObject origin;
 
     void Awake()
     {
@@ -23,8 +31,25 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
         rectTransform = GetComponent<RectTransform>();
     }
 
+    // allows pop up to affect origin interactable object
+    public virtual void ConnectToOrigin(GameObject origin)
+    {
+        this.origin = origin;
+    }
+
     public void CloseWindow()
     {
+        if (origin != null)
+        {
+            IPopUpSpawner spawner = origin.GetComponent<IPopUpSpawner>();
+
+            if (spawner != null)
+            {
+                spawner.DisconnectPopUp();
+            }
+        }
+
+
         Destroy(gameObject);
     }
 
@@ -92,7 +117,8 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
         {
             // moves window
             rectTransform.anchoredPosition += eventData.delta / parent.scaleFactor;
-        }else if (resizing)
+        }
+        else if (resizing)
         {
             // sets size
             rectTransform.sizeDelta += (eventData.delta * resizeDirection / 2) / parent.scaleFactor;
