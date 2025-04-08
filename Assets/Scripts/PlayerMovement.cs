@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+    public bool isInWaterEffectZone;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -164,4 +166,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WaterEffectZone"))
+        {
+            isInWaterEffectZone = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("WaterEffectZone"))
+        {
+            isInWaterEffectZone = false;
+        }
+    }
+
 }

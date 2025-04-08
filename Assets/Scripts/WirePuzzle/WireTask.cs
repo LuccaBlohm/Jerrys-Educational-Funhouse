@@ -7,6 +7,9 @@ public class WireTask : MonoBehaviour
     [SerializeField] private List<Color> _wireColors = new List<Color>();
     [SerializeField] private List<Wire> _leftWires = new List<Wire>();
     [SerializeField] private List<Wire> _rightWires = new List<Wire>();
+    //public Wire CurrentDraggedWire;
+    //public Wire CurrentHoveredWire;
+    //[SerializeField] private bool IsTaskCompleted = false;
     private List<Color> _availableColors;
     private List<int> _availableLeftWireIndex;
     private List<int> _availableRightWireIndex;
@@ -38,5 +41,28 @@ public class WireTask : MonoBehaviour
             _availableLeftWireIndex.RemoveAt(pickedLeftWireIndex);
             _availableRightWireIndex.RemoveAt(pickedRightWireIndex);
         }
+
+        //StartCoroutine(CheckTaskCompletion());
     }
+    //private IEnumerator CheckTaskCompletion()
+    //{
+    //    while (!IsTaskCompleted)
+    //    {
+    //        int successfulWires = 0;
+    //        for (int i = 0; i < _rightWires.Count; i++)
+    //        {
+    //            if (_rightWires[i].IsSuccess)
+    //            {
+    //                successfulWires++;
+    //            }
+    //        }
+    //        if (successfulWires >= _rightWires.Count)
+    //        {
+    //        }
+    //        else
+    //        {
+    //        }
+    //        yield return new WaitForSeconds(0.5f);
+    //    }
+    //}
 }
