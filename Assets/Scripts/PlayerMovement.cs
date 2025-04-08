@@ -27,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canJump;
 
+    public float sensX;
+    public float sensY;
+
+    float xRotation;
+    float yRotation;
+
+    Transform cam;
+    Camera camComponent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +47,16 @@ public class PlayerMovement : MonoBehaviour
         Interact.performed += ctx => TryInteract();
         Jump = playerInput.currentActionMap.FindAction("Jump");
         Jump.performed += ctx => TryJump();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        cam = transform.GetChild(1);
+        camComponent = cam.GetComponent<Camera>();
+    }
+
+    private void Update()
+    {
+        rotateCamera();
     }
 
     // Update is called once per frame
@@ -49,22 +68,66 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+        checkForInteractable();
     }
 
-    [SerializeField] private float interactRange = 2f;
+    [SerializeField] private float interactRange = 3f;
+
+    private IInteractable checkForInteractable()
+    {
+        Ray ray = camComponent.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactRange) && hit.transform.tag == "Clickable")
+        {
+            CursorBehavior.objectClickable = true;
+            return hit.transform.GetComponent<IInteractable>();
+        }
+        else
+        {
+            CursorBehavior.objectClickable = false;
+        }
+
+        return null;
+    }
 
     private void TryInteract() ///For now ive just got it as simple proximity interaction, we can change it if necessary
     {
+        /*
         Collider[] hits = Physics.OverlapSphere(transform.position, interactRange);
 
         foreach (var hit in hits)
         {
             var interactable = hit.GetComponent<IInteractable>();
-            if (interactable != null)
+            if (interactable != null && CursorBehavior.objectClickable)
             {
                 interactable.OnInteract();
                 return; // Will only interacts with the first object found
             }
+        }*/
+
+        IInteractable interactable = checkForInteractable();
+
+        if (interactable != null)
+        {
+            interactable.OnInteract();
+        }
+    }
+
+    private void rotateCamera()
+    {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
+
+            cam.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         }
     }
 

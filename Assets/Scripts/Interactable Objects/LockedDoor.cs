@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockedDoor : Interactable
+public class LockedDoor : MonoBehaviour, IInteractable
 {
     [SerializeField] protected GameObject popup;
     [SerializeField] protected Transform canvasTransform;
@@ -17,11 +17,27 @@ public class LockedDoor : Interactable
         
     }
 
-    // bug: this ignores ui over it
+    /*/ bug: this ignores ui over it
     // spawns pop up upon click
     private void OnMouseDown()
     {
         if (!popUpOn && range >= distanceFromPlayer())
+        {
+            lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 1000),
+                                                                Random.Range(0, 520)),
+                                    Quaternion.identity,
+                                    canvasTransform).GetComponent<LockScript>();
+
+
+
+            lockPopUpConnection.connectDoor(GetComponent<LockedDoor>(), lockCombo);
+            popUpOn = true;
+        }
+    }*/
+
+    public void OnInteract()
+    {
+        if (!popUpOn)
         {
             lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 1000),
                                                                 Random.Range(0, 520)),
