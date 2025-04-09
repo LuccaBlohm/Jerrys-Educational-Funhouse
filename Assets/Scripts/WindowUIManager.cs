@@ -25,6 +25,8 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
     protected GameObject origin;
 
+    protected Vector2 clickPosition;
+
     void Awake()
     {
         parent = gameObject.transform.parent.GetComponent<Canvas>();
@@ -120,6 +122,8 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
         }
         else if (resizing)
         {
+
+            //RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out clickPosition);
             // sets size
             rectTransform.sizeDelta += (eventData.delta * resizeDirection / 2) / parent.scaleFactor;
 
