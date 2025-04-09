@@ -1034,7 +1034,7 @@ MonoBehaviour:
   PausePopUp: {fileID: 0}
   sensX: 0
   sensY: 0
-  camComponent: {fileID: 0}
+  camComponent: {fileID: 2056210479}
   rotationOffset: 0
   interactRange: 2
 --- !u!114 &270106427
