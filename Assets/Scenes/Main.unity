@@ -1028,8 +1028,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 0
+  isInWaterEffectZone: 0
   orientation: {fileID: 1683418411}
   playerInput: {fileID: 270106427}
+  PausePopUp: {fileID: 0}
+  sensX: 0
+  sensY: 0
+  camComponent: {fileID: 0}
+  rotationOffset: 0
   interactRange: 2
 --- !u!114 &270106427
 MonoBehaviour:
@@ -2094,6 +2100,7 @@ MonoBehaviour:
   playerCam: {fileID: 2056210475}
   portal: {fileID: 887795474}
   otherPortal: {fileID: 688607469}
+  sidePortal: 0
 --- !u!20 &537796836
 Camera:
   m_ObjectHideFlags: 0
@@ -2824,6 +2831,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 270106431}
   receiver: {fileID: 767641455}
+  rotationOffset: 0
+  pm: {fileID: 270106426}
 --- !u!65 &677148185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3216,6 +3225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 270106431}
   receiver: {fileID: 677148183}
+  rotationOffset: 0
+  pm: {fileID: 270106426}
 --- !u!65 &767641454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7292,6 +7303,7 @@ MonoBehaviour:
   playerCam: {fileID: 2056210475}
   portal: {fileID: 688607469}
   otherPortal: {fileID: 887795474}
+  sidePortal: 0
 --- !u!20 &1582930086
 Camera:
   m_ObjectHideFlags: 0
