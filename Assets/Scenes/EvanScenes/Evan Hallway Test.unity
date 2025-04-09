@@ -11266,8 +11266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpForce: 25
+  isInWaterEffectZone: 0
   orientation: {fileID: 1888549581}
   playerInput: {fileID: 807380826}
+  PausePopUp: {fileID: 0}
+  sensX: 0
+  sensY: 0
+  camComponent: {fileID: 410873383}
   interactRange: 2
 --- !u!54 &807380828
 Rigidbody:

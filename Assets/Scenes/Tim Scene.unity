@@ -942,6 +942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 819710350601478851, guid: 0606525d680fdff4cad073c622cdeca1, type: 3}
+      propertyPath: camComponent
+      value: 
+      objectReference: {fileID: 3878354}
     - target: {fileID: 4291960463995934852, guid: 0606525d680fdff4cad073c622cdeca1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1922,10 +1926,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2078271925}
   cubeList: []
-  baseHeight: -4.1107
-  minHeight: -8.76
-  effectRadius: 28
-  lerpSpeed: 9.5
+  baseHeight: -4
+  minHeight: -8
+  effectRadius: 15
+  lerpSpeed: 10
 --- !u!1 &847721373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbea280e1250144d886475233644ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransformMinSize: {x: 0, y: 0}
   num: 000000000000000000000000
   isCorrect: 000000
   correctNums: 000000000000000000000000
