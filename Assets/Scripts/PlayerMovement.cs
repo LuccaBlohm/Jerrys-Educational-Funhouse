@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         cam = transform.GetChild(1);
+        camComponent = cam.GetComponent<Camera>();
     }
 
     private void Update()

@@ -167,7 +167,8 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerEnter != null)
+        if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerEnter != null &&
+            !eventData.dragging)
         {
             // state behaviors
             switch (cursorState)
@@ -177,7 +178,7 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
                     {
                         manageCursorState(cursorSelect.click);
                     }
-                    else if (eventData.pointerEnter.tag == "Resizable" && !Input.GetMouseButton(0))
+                    else if (eventData.pointerEnter.tag == "Resizable")
                     {
                         selectResizeDirection(eventData);
                     }
@@ -194,15 +195,15 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
                 case cursorSelect.horizontal:
                 case cursorSelect.diagonal1:
                 case cursorSelect.diagonal2:
-                    if (!Input.GetMouseButton(0))
-                    {
-                        selectResizeDirection(eventData);
 
-                        if (eventData.pointerEnter.tag != "Resizable")
-                        {
-                            manageCursorState(cursorSelect.pointer);
-                        }
+                    
+                    selectResizeDirection(eventData);
+
+                    if (eventData.pointerEnter.tag != "Resizable")
+                    {
+                        manageCursorState(cursorSelect.pointer);
                     }
+                    
                     break;
                 case cursorSelect.eye:
                     if (Cursor.lockState != CursorLockMode.Locked)
