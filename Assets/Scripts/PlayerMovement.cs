@@ -40,7 +40,9 @@ public class PlayerMovement : MonoBehaviour
     float yRotation;
 
     Transform cam;
-    Camera camComponent;
+    public Camera camComponent;
+
+    public int rotationOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         cam = transform.GetChild(1);
-        camComponent = cam.GetComponent<Camera>();
     }
 
     private void Update()
@@ -137,8 +138,8 @@ public class PlayerMovement : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-            cam.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            cam.rotation = Quaternion.Euler(xRotation, yRotation + rotationOffset, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation + rotationOffset, 0);
         }
     }
 
@@ -185,6 +186,12 @@ public class PlayerMovement : MonoBehaviour
         {
             isInWaterEffectZone = false;
         }
+    }
+
+    public void OnRotated()
+    {
+        print("ROTATION STATION");
+        rotationOffset += 90;
     }
 
 }
