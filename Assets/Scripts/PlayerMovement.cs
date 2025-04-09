@@ -147,10 +147,10 @@ public class PlayerMovement : MonoBehaviour
     private void TryJump()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
         {
             // If the ray hits something within a distance of 1.1f, the player is grounded
-            if (hit.distance < 2f)
+            if (hit.distance < 1f)
             {
                 // Apply the jump force
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
