@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         cam = transform.GetChild(1);
         camComponent = cam.GetComponent<Camera>();
+        camComponent = Camera.main;
     }
 
     private void Update()
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IInteractable checkForInteractable()
     {
+
         if (!GamePaused)
         {
             Ray ray = camComponent.ScreenPointToRay(Input.mousePosition);
@@ -107,23 +109,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryInteract() ///For now ive just got it as simple proximity interaction, we can change it if necessary
     {
-        /*
-        Collider[] hits = Physics.OverlapSphere(transform.position, interactRange);
+        Debug.Log("Interaction attempted");
 
-        foreach (var hit in hits)
-        {
-            var interactable = hit.GetComponent<IInteractable>();
-            if (interactable != null && CursorBehavior.objectClickable)
-            {
-                interactable.OnInteract();
-                return; // Will only interacts with the first object found
-            }
-        }*/
+
+        // Collider[] hits = Physics.OverlapSphere(transform.position, interactRange);
+
+        // foreach (var hit in hits)
+        // {
+        //     Debug.Log("Interactable found");
+        //     var interactable = hit.GetComponent<IInteractable>();
+        //     if (interactable != null && CursorBehavior.objectClickable)
+        //     {
+        //         interactable.OnInteract();
+        //         return; // Will only interacts with the first object found
+        //     }
+        // }
 
         IInteractable interactable = checkForInteractable();
 
         if (interactable != null)
         {
+
+            Debug.Log("Interactable found");
             interactable.OnInteract();
         }
     }
@@ -147,10 +154,10 @@ public class PlayerMovement : MonoBehaviour
     private void TryJump()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
         {
             // If the ray hits something within a distance of 1.1f, the player is grounded
-            if (hit.distance < 2f)
+            if (hit.distance < 1f)
             {
                 // Apply the jump force
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

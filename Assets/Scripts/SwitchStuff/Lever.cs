@@ -26,13 +26,9 @@ public class Lever : MonoBehaviour, IInteractable
     public void SwitchPosition()
     {
         leverPos = !leverPos;
-        if (leverPos)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -40);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 40);
-        }
+
+        Vector3 currentEuler = transform.rotation.eulerAngles;
+        float newZ = leverPos ? -40f : 40f;
+        transform.rotation = Quaternion.Euler(currentEuler.x, currentEuler.y, newZ);
     }
 }
