@@ -64,7 +64,7 @@ public class ButtonsManager : MonoBehaviour
         scaryBackground.SetActive(true);
         jerry.SetActive(false);
         scerry.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.07f);
         SceneManager.LoadScene(1);
     }
 }

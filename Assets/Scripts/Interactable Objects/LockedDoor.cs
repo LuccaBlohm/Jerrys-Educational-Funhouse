@@ -39,8 +39,8 @@ public class LockedDoor : MonoBehaviour, IInteractable, IPopUpSpawner
     {
         if (!popUpOn)
         {
-            lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 1000),
-                                                                Random.Range(0, 520)),
+            lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 800),
+                                                                Random.Range(0, 400)),
                                     Quaternion.identity,
                                     canvasTransform).GetComponent<LockScript>();
 
