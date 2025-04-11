@@ -56,6 +56,11 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
         Destroy(gameObject);
     }
 
+    public void MinimizeWindow()
+    {
+        rectTransform.sizeDelta = rectTransformMinSize;
+    }
+
     // sends window to front when clicked
     public void OnPointerDown(PointerEventData eventData)
     {
