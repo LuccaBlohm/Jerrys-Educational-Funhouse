@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 8342514039750477233}
   - component: {fileID: 4450114296743182856}
   - component: {fileID: 5530595341243477965}
+  - component: {fileID: 3829687700820163132}
   m_Layer: 0
   m_Name: LightMountingBoard
   m_TagString: Untagged
@@ -383,6 +384,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.97424316, y: 1, z: 1}
   m_Center: {x: -0.012878418, y: 0, z: 0}
+--- !u!114 &3829687700820163132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954566423145518846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac457601a1af1f44a03866d343d4efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 6981558076212992551}
+  - {fileID: 3797806875246156343}
+  - {fileID: 3983851522840095403}
+  - {fileID: 8470491379013477734}
+  - {fileID: 4399335900761547269}
 --- !u!1 &1461591032711403018
 GameObject:
   m_ObjectHideFlags: 0
