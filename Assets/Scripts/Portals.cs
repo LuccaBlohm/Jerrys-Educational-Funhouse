@@ -18,10 +18,10 @@ public class Portals : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(sidePortal == 1)
+        if (sidePortal == 1)
         {
             Vector3 playerOffSetFromPortal = playerCam.position - otherPortal.position;
-            Vector3 sidePortal = new Vector3(playerOffSetFromPortal.z,playerOffSetFromPortal.y,-playerOffSetFromPortal.x);
+            Vector3 sidePortal = new Vector3(playerOffSetFromPortal.z, playerOffSetFromPortal.y, -playerOffSetFromPortal.x);
             transform.position = portal.position + sidePortal;
 
             float angularDifference = Quaternion.Angle(portal.rotation, otherPortal.rotation);
@@ -43,6 +43,17 @@ public class Portals : MonoBehaviour
             Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
             transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
         }
+        else if (sidePortal == 0)
+        {
+            Vector3 playerOffSetFromPortal = playerCam.position - otherPortal.position;
+            transform.position = portal.position + playerOffSetFromPortal;
+
+            float angularDifference = Quaternion.Angle(portal.rotation, otherPortal.rotation);
+
+            Quaternion portalRotationDifference = Quaternion.AngleAxis(angularDifference, Vector3.up);
+            Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
+            transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
+        }
         else
         {
             Vector3 playerOffSetFromPortal = playerCam.position - otherPortal.position;
@@ -51,6 +62,7 @@ public class Portals : MonoBehaviour
             float angularDifference = Quaternion.Angle(portal.rotation, otherPortal.rotation);
 
             Quaternion portalRotationDifference = Quaternion.AngleAxis(angularDifference, Vector3.up);
+            portalRotationDifference.eulerAngles = new Vector3(portalRotationDifference.eulerAngles.x, portalRotationDifference.eulerAngles.y + 180, portalRotationDifference.eulerAngles.z);
             Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
             transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
         }
