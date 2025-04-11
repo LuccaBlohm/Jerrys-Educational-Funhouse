@@ -1670,11 +1670,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 237
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1694,7 +1694,7 @@ PrefabInstance:
       objectReference: {fileID: 5900660938209579209}
     - target: {fileID: 3640459603875446514, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseWindow
+      value: MinimizeWindow
       objectReference: {fileID: 0}
     - target: {fileID: 7666707354240482136, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_Name
@@ -1744,6 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransformMinSize: {x: 140, y: 50}
+  rectTransformMaxSize: {x: 0, y: 0}
   num: 000000000000000000000000
   isCorrect: 000000
   correctNums: 000000000000000000000000
