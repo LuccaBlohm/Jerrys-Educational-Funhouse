@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int rotationOffset;
 
+    public ItemSprite itemHeld;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,8 +87,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float interactRange = 3f;
 
-    private IInteractable checkForInteractable()
+    private Transform checkForInteractable()
     {
+        Transform interactableTransform = null;
         IInteractable interactable = null;
 
         if (!GamePaused)
@@ -96,13 +99,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, interactRange))
             {
-                interactable = hit.transform.GetComponent<IInteractable>();
+                interactableTransform = hit.transform;
+                interactable = interactableTransform.GetComponent<IInteractable>();
             }
 
             // switches cursor to clicking state
             if (interactable != null)
             {
                 CursorBehavior.objectClickable = true;
+                return interactableTransform;
             }
             else
             {
@@ -111,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        return interactable;
+        return null;
     }
 
     private void TryInteract() ///For now ive just got it as simple proximity interaction, we can change it if necessary
@@ -132,13 +137,44 @@ public class PlayerMovement : MonoBehaviour
         //     }
         // }
 
-        IInteractable interactable = checkForInteractable();
-
-        if (interactable != null)
+        // ui does not seem to block the raycast otherwise
+        if (CursorBehavior.overUI)
         {
+            return;
+        }
 
+        Transform interactableTransform = checkForInteractable();
+
+        if (interactableTransform != null)
+        {
+            IInteractable interactable = interactableTransform.GetComponent<IInteractable>();
+            ItemSprite item = interactableTransform.GetComponent<ItemSprite>();
+
+            tryItemPickUp(item);
             Debug.Log("Interactable found");
             interactable.OnInteract();
+        }
+        else
+        {
+            if (itemHeld != null)
+            {
+                itemHeld.Drop();
+                itemHeld = null;
+            }
+        }
+    }
+
+    private void tryItemPickUp(ItemSprite item)
+    {
+
+        if (item != null)
+        {
+            if (itemHeld != null)
+            {
+                itemHeld.Drop();
+            }
+            item.AttachToPlayer(transform);
+            itemHeld = item;
         }
     }
 

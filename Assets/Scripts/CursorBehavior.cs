@@ -15,9 +15,9 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
     InputAction cursorLockToggle;
 
     string resizePoint;
-    static public bool objectClickable = false;
+    static public bool objectClickable;
 
-    bool overUI;
+    static public bool overUI;
 
     [SerializeField] Texture2D[] cursors;
 
@@ -74,7 +74,7 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
     {
         Cursor.visible = true;
 
-        if (!overUI && !Input.GetMouseButton(0))
+        if (!overUI)
         {
             if (objectClickable)
             {

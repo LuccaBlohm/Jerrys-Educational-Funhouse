@@ -11,30 +11,6 @@ public class LockedDoor : MonoBehaviour, IInteractable, IPopUpSpawner
 
     bool popUpOn;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    /*/ bug: this ignores ui over it
-    // spawns pop up upon click
-    private void OnMouseDown()
-    {
-        if (!popUpOn && range >= distanceFromPlayer())
-        {
-            lockPopUpConnection = Instantiate(popup, new Vector2(Random.Range(0, 1000),
-                                                                Random.Range(0, 520)),
-                                    Quaternion.identity,
-                                    canvasTransform).GetComponent<LockScript>();
-
-
-
-            lockPopUpConnection.connectDoor(GetComponent<LockedDoor>(), lockCombo);
-            popUpOn = true;
-        }
-    }*/
-
     public void OnInteract()
     {
         if (!popUpOn)
