@@ -27,14 +27,24 @@ public class ItemSprite : MonoBehaviour, IInteractable
 
     public void AttachToPlayer(Transform player)
     {
-        playerTransform = player;
+        if (playerTransform == null)
+        {
+            playerTransform = player;
+        }
+
+        RawImage itemHolder = player.GetComponentInChildren<RawImage>();
+
+        if (itemHolder != null)
+        {
+            itemVisual = itemHolder;
+        }
     }
 
     public void Drop()
     {
         itemCanvas.SetActive(false);
-        gameObject.SetActive(true);
         transform.position = playerTransform.position;
+        gameObject.SetActive(true);
     }
 
     private void FixedUpdate()

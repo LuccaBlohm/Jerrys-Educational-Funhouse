@@ -11,12 +11,6 @@ public class LockedDoor : MonoBehaviour, IInteractable, IPopUpSpawner
 
     bool popUpOn;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void OnInteract()
     {
         if (!popUpOn)

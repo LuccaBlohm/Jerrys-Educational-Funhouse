@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int rotationOffset;
 
-    private ItemSprite itemHeld;
+    public ItemSprite itemHeld;
 
     // Start is called before the first frame update
     void Start()
@@ -137,6 +137,12 @@ public class PlayerMovement : MonoBehaviour
         //     }
         // }
 
+        // ui does not seem to block the raycast otherwise
+        if (CursorBehavior.overUI)
+        {
+            return;
+        }
+
         Transform interactableTransform = checkForInteractable();
 
         if (interactableTransform != null)
@@ -147,6 +153,14 @@ public class PlayerMovement : MonoBehaviour
             tryItemPickUp(item);
             Debug.Log("Interactable found");
             interactable.OnInteract();
+        }
+        else
+        {
+            if (itemHeld != null)
+            {
+                itemHeld.Drop();
+                itemHeld = null;
+            }
         }
     }
 
