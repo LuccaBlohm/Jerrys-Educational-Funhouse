@@ -51,6 +51,7 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
     {
         pi = GetComponent<PlayerInput>();
         cursorLockToggle = pi.currentActionMap.FindAction("CursorLockToggle");
+        cursorLockToggle.performed += ctx => cursorLock();
 
         Cursor.SetCursor(cursors[(int)cursorSelect.pointer], hotspot, CursorMode.Auto);
 
@@ -67,12 +68,6 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        cursorLock();
     }
 
     private void FixedUpdate()
