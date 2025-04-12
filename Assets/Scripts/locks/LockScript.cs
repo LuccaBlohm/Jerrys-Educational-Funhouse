@@ -17,6 +17,7 @@ public class LockScript : WindowUIManager
     {
         parent = gameObject.transform.parent.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
+        rectTransformMaxSize = new Vector2(parent.renderingDisplaySize.x, parent.renderingDisplaySize.y);
     }
 
     public override void ConnectToOrigin(GameObject origin)
@@ -29,7 +30,7 @@ public class LockScript : WindowUIManager
 
             if (door != null)
             {
-                lockedDoor = door.GetComponent<LockedDoor>();
+                lockedDoor = door;
             }
         }
     }
