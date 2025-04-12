@@ -31,7 +31,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
     {
         parent = gameObject.transform.parent.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
-        rectTransformMaxSize = new Vector2(Screen.width, Screen.height);
+        rectTransformMaxSize = new Vector2(parent.renderingDisplaySize.x, parent.renderingDisplaySize.y);
     }
 
     // allows pop up to affect origin interactable object
@@ -184,7 +184,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
             {
                 case (bound.right, bound.none):
                     rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
-                                                            Screen.width - rectTransform.position.x/2);
+                                                            parent.renderingDisplaySize.x - rectTransform.position.x/2);
                     break;
 
                 case (bound.left, bound.none):
@@ -267,12 +267,12 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
             {
                 case (true, false):
                     rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, rectTransformMaxSize.x);
-                    rectTransform.position = new Vector2(Screen.width/2, rectTransform.position.y);
+                    rectTransform.position = new Vector2(parent.renderingDisplaySize.x/2, rectTransform.position.y);
                     break;
 
                 case (false, true):
                     rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rectTransformMaxSize.y);
-                    rectTransform.position = new Vector2(rectTransform.position.x, Screen.height/2);
+                    rectTransform.position = new Vector2(rectTransform.position.x, parent.renderingDisplaySize.y/2);
                     break;
 
                 case (true, true):
@@ -304,7 +304,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
     private bound checkXBounds(PointerEventData eventData)
     {
-        bool rightBound = eventData.delta.x + rectTransform.position.x + rectTransform.sizeDelta.x / 2 > Screen.width;
+        bool rightBound = eventData.delta.x + rectTransform.position.x + rectTransform.sizeDelta.x / 2 > parent.renderingDisplaySize.x;
 
         bool leftBound = eventData.delta.x + rectTransform.position.x - rectTransform.sizeDelta.x / 2 < 0;
 
@@ -343,7 +343,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
     private bound checkYBounds(PointerEventData eventData)
     {
-        bool upBound = eventData.delta.y + rectTransform.position.y + rectTransform.sizeDelta.y / 2 > Screen.height;
+        bool upBound = eventData.delta.y + rectTransform.position.y + rectTransform.sizeDelta.y / 2 > parent.renderingDisplaySize.y;
 
         bool downBound = eventData.delta.y + rectTransform.position.y - rectTransform.sizeDelta.y / 2 < 0;
 
@@ -385,7 +385,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
         switch (x, y)
         {
             case (bound.right, bound.none):
-                rectTransform.position = new Vector2(Screen.width - rectTransform.sizeDelta.x / 2,
+                rectTransform.position = new Vector2(parent.renderingDisplaySize.x - rectTransform.sizeDelta.x / 2,
                                                      rectTransform.position.y);
                 break;
 
@@ -396,7 +396,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
             case (bound.none, bound.up):
                 rectTransform.position = new Vector2(rectTransform.position.x,
-                                                     Screen.height - rectTransform.sizeDelta.y / 2);
+                                                     parent.renderingDisplaySize.y - rectTransform.sizeDelta.y / 2);
                 break;
 
             case (bound.none, bound.down):
@@ -405,17 +405,17 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
                 break;
 
             case (bound.right, bound.up):
-                rectTransform.position = new Vector2(Screen.width - rectTransform.sizeDelta.x / 2,
-                                                     Screen.height - rectTransform.sizeDelta.y / 2);
+                rectTransform.position = new Vector2(parent.renderingDisplaySize.x - rectTransform.sizeDelta.x / 2,
+                                                     parent.renderingDisplaySize.y - rectTransform.sizeDelta.y / 2);
                 break;
 
             case (bound.left, bound.up):
                 rectTransform.position = new Vector2(0 + rectTransform.sizeDelta.x / 2,
-                                                     Screen.height - rectTransform.sizeDelta.y / 2);
+                                                     parent.renderingDisplaySize.y - rectTransform.sizeDelta.y / 2);
                 break;
 
             case (bound.right, bound.down):
-                rectTransform.position = new Vector2(Screen.width - rectTransform.sizeDelta.x / 2,
+                rectTransform.position = new Vector2(parent.renderingDisplaySize.x - rectTransform.sizeDelta.x / 2,
                                                      0 + rectTransform.sizeDelta.y / 2);
                 break;
 

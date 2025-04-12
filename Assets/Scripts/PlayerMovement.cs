@@ -87,24 +87,31 @@ public class PlayerMovement : MonoBehaviour
 
     private IInteractable checkForInteractable()
     {
+        IInteractable interactable = null;
 
         if (!GamePaused)
         {
             Ray ray = camComponent.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, interactRange) && hit.transform.tag == "Clickable")
+            if (Physics.Raycast(ray, out hit, interactRange))
+            {
+                interactable = hit.transform.GetComponent<IInteractable>();
+            }
+
+            // switches cursor to clicking state
+            if (interactable != null)
             {
                 CursorBehavior.objectClickable = true;
-                return hit.transform.GetComponent<IInteractable>();
             }
             else
             {
                 CursorBehavior.objectClickable = false;
             }
+
         }
 
-        return null;
+        return interactable;
     }
 
     private void TryInteract() ///For now ive just got it as simple proximity interaction, we can change it if necessary
