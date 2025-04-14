@@ -9,6 +9,8 @@ public class PianoKeys : MonoBehaviour
     private Vector3 targetPosition;
     private bool isPressed = false;
     private bool hasPlayed = false;
+    public string keyLetter;
+    private PianoPuzzle pp;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class PianoKeys : MonoBehaviour
         audioSource.playOnAwake = false;
         originalPosition = transform.localPosition;
         downPosition = transform.localPosition - new Vector3(0, 0.04f, 0);
+        pp = GameObject.Find("PianoPuzzleManager").GetComponent<PianoPuzzle>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PianoKeys : MonoBehaviour
             {
                 audioSource.Play();
                 hasPlayed = true;
+                pp.RegisterKeyPress(keyLetter);
             }
         }
 
