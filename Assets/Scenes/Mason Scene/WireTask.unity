@@ -527,6 +527,9 @@ MonoBehaviour:
   - {fileID: 1673398259}
   - {fileID: 1898348468}
   - {fileID: 1435909333}
+  CurrentDraggedWire: {fileID: 0}
+  CurrentHoveredWire: {fileID: 0}
+  IsTaskCompleted: 0
 --- !u!1 &1289318588
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +622,7 @@ GameObject:
   - component: {fileID: 1430565949}
   - component: {fileID: 1430565950}
   m_Layer: 5
-  m_Name: Wire1 (3)
+  m_Name: Wire4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,6 +698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 1
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1430565950
 LineRenderer:
   serializedVersion: 2
@@ -889,6 +894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 0
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1435909334
 LineRenderer:
   serializedVersion: 2
@@ -1007,7 +1014,7 @@ GameObject:
   - component: {fileID: 1507037114}
   - component: {fileID: 1507037115}
   m_Layer: 5
-  m_Name: Wire1 (2)
+  m_Name: Wire3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1083,6 +1090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 1
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1507037115
 LineRenderer:
   serializedVersion: 2
@@ -1277,6 +1286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 1
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1668492590
 LineRenderer:
   serializedVersion: 2
@@ -1471,6 +1482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 0
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1673398260
 LineRenderer:
   serializedVersion: 2
@@ -1759,6 +1772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 0
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1898348469
 LineRenderer:
   serializedVersion: 2
@@ -1953,6 +1968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 0
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &1983476025
 LineRenderer:
   serializedVersion: 2
@@ -2071,7 +2088,7 @@ GameObject:
   - component: {fileID: 2023355254}
   - component: {fileID: 2023355255}
   m_Layer: 5
-  m_Name: Wire1 (1)
+  m_Name: Wire2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2147,6 +2164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftWire: 1
+  CustomColor: {r: 0, g: 0, b: 0, a: 1}
+  IsSuccess: 0
 --- !u!120 &2023355255
 LineRenderer:
   serializedVersion: 2
