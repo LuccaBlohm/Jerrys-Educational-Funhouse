@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,10 +14,15 @@ public class SwitchManager : MonoBehaviour
     public bool d = false;
     public bool e = false;
 
+    public GameObject FinalDoor;
+    public GameObject FinalExit;
+
     // Start is called before the first frame update
     void Start()
     {
+        FinalDoor.SetActive(a && b && c && d && e);
         OnStateChanged?.Invoke(a, b, c, d, e);
+        FinalExit.SetActive(false);
     }
 
     // Update is called once per frame
@@ -69,6 +73,18 @@ public class SwitchManager : MonoBehaviour
                 //doors[3].State == d; 
                 break;
         }
+        if (a && b && c && d && e)
+        {
+            FinalDoor.SetActive(true);
+            StartCoroutine(WaitAndActivateExit());
+        }
         OnStateChanged?.Invoke(a, b, c, d, e);
+    }
+
+    IEnumerator WaitAndActivateExit()
+    {
+        Debug.Log("Coroutine started!");
+        yield return new WaitForSeconds(1.5f);
+        FinalExit.SetActive(true);
     }
 }
