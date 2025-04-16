@@ -58,9 +58,7 @@ public class WireTask : MonoBehaviour
             }
             if (successfulWires >= _rightWires.Count)
             {
-            }
-            else
-            {
+                IsTaskCompleted = true;
             }
             yield return new WaitForSeconds(0.1f);
         }

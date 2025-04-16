@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private bool IsLeftWire;
     [SerializeField] private Color CustomColor;
@@ -20,34 +20,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         _canvas = GetComponentInParent<Canvas>();
         _wireTask = GetComponentInParent<WireTask>();
     }
-    private void Update()
-    {
-        if (_isDragStarted)
-        {
-            Vector2 movePos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform,
-                Input.mousePosition, _canvas.worldCamera, out movePos);
 
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, _canvas.transform.TransformPoint(movePos));
-        }
-        else
-        {
-            if (!IsSuccess)
-            {
-                _lineRenderer.SetPosition(0, Vector3.zero);
-                _lineRenderer.SetPosition(1, Vector3.zero);
-            }
-        }
-
-        bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform,
-            Input.mousePosition, _canvas.worldCamera);
-
-        if (isHovered)
-        {
-            _wireTask.CurrentHoveredWire = this;
-        }
-    }
     public void SetColor(Color color)
     {
         _image.color = color;  
@@ -58,7 +31,15 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        //needed for drag but not used
+        if (_isDragStarted)
+        {
+            Vector2 movePos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform,
+                Input.mousePosition, _canvas.worldCamera, out movePos);
+
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, _canvas.transform.TransformPoint(movePos));
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -67,7 +48,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         {
             return;
         }
-        if (!IsSuccess)
+        if (IsSuccess)
         {
             return;
         }
@@ -85,7 +66,24 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                 _wireTask.CurrentHoveredWire.IsSuccess = true;
             }
         }
+
+        if (!IsSuccess)
+        {
+            _lineRenderer.SetPosition(0, Vector3.zero);
+            _lineRenderer.SetPosition(1, Vector3.zero);
+        }
+
         _isDragStarted = false;
         _wireTask.CurrentDraggedWire = null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _wireTask.CurrentHoveredWire = this;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _wireTask.CurrentHoveredWire = null;
     }
 }
