@@ -54,7 +54,7 @@ public class Portals : MonoBehaviour
             Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
             transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
         }
-        else
+        else if (sidePortal == 3)
         {
             Vector3 playerOffSetFromPortal = playerCam.position - otherPortal.position;
             transform.position = portal.position + playerOffSetFromPortal;
@@ -63,6 +63,18 @@ public class Portals : MonoBehaviour
 
             Quaternion portalRotationDifference = Quaternion.AngleAxis(angularDifference, Vector3.up);
             portalRotationDifference.eulerAngles = new Vector3(portalRotationDifference.eulerAngles.x, portalRotationDifference.eulerAngles.y + 180, portalRotationDifference.eulerAngles.z);
+            Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
+            transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
+        }
+        else
+        {
+            Vector3 playerOffSetFromPortal = playerCam.position - otherPortal.position;
+            transform.position = portal.position + playerOffSetFromPortal;
+
+            float angularDifference = Quaternion.Angle(portal.rotation, otherPortal.rotation);
+
+            Quaternion portalRotationDifference = Quaternion.AngleAxis(angularDifference, Vector3.up);
+            portalRotationDifference.eulerAngles = new Vector3(portalRotationDifference.eulerAngles.x, portalRotationDifference.eulerAngles.y, portalRotationDifference.eulerAngles.z);
             Vector3 newCameraDirection = portalRotationDifference * playerCam.forward;
             transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
         }

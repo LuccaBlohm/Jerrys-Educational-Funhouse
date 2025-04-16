@@ -10,7 +10,6 @@ public class PortalTeleporterScript : MonoBehaviour
     public PlayerMovement pm;
 
     private bool playerOverlap = false;
-
     // Update is called once per frame
     void Update()
     {
