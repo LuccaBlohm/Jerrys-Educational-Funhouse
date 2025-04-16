@@ -2068,7 +2068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1005542406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,8 +3065,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraB: {fileID: 905273073}
   cameraA: {fileID: 1005542407}
+  cameraC: {fileID: 0}
+  cameraD: {fileID: 0}
+  cameraE: {fileID: 0}
+  cameraF: {fileID: 0}
+  cameraG: {fileID: 0}
+  cameraH: {fileID: 0}
   materialB: {fileID: 2100000, guid: ff8e65992b5da8c4b9c7b2c6cd7c8d92, type: 2}
   materialA: {fileID: 2100000, guid: 2f77bebaea8448b4d92029c93e545bc0, type: 2}
+  materialC: {fileID: 0}
+  materialD: {fileID: 0}
+  materialE: {fileID: 0}
+  materialF: {fileID: 0}
+  materialG: {fileID: 0}
+  materialH: {fileID: 0}
 --- !u!1 &1614521897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4072,6 +4084,7 @@ MonoBehaviour:
   sensY: 430
   camComponent: {fileID: 783500113}
   rotationOffset: 0
+  itemHeld: {fileID: 0}
   interactRange: 2
 --- !u!114 &2109372142
 MonoBehaviour:
