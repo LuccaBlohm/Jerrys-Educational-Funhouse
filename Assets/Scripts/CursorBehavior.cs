@@ -74,7 +74,7 @@ public class CursorBehavior : MonoBehaviour, IPointerMoveHandler,
     {
         Cursor.visible = true;
 
-        if (!overUI)
+        if (!overUI && !Input.GetMouseButton(0))
         {
             if (objectClickable)
             {
