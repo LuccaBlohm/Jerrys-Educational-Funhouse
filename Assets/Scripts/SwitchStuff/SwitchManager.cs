@@ -15,20 +15,22 @@ public class SwitchManager : MonoBehaviour
     public bool e = false;
 
     public GameObject FinalDoor;
-    public GameObject FinalExit;
+
 
     // Start is called before the first frame update
     void Start()
     {
         FinalDoor.SetActive(a && b && c && d && e);
-        OnStateChanged?.Invoke(a, b, c, d, e);
-        FinalExit.SetActive(false);
+        OnStateChanged?.Invoke(a, b, c, d, e); //calls event to swap lights and doors to default position because all is 0
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        // if (a && b && c && d && e) //only here for debugging, normally done from leverflip
+        // {
+        //     FinalDoor.SetActive(true);
+        //     StartCoroutine(DelayedRefresh(FinalDoor));
+        // }
     }
 
     public void LeverFlip(string switchNumeral)
@@ -76,15 +78,31 @@ public class SwitchManager : MonoBehaviour
         if (a && b && c && d && e)
         {
             FinalDoor.SetActive(true);
-            StartCoroutine(WaitAndActivateExit());
+            StartCoroutine(DelayedRefresh(FinalDoor));
         }
         OnStateChanged?.Invoke(a, b, c, d, e);
     }
 
-    IEnumerator WaitAndActivateExit()
+    IEnumerator DelayedRefresh(GameObject obj)
     {
-        Debug.Log("Coroutine started!");
-        yield return new WaitForSeconds(1.5f);
-        FinalExit.SetActive(true);
+        yield return new WaitForSeconds(1f); //wait for a whole second to allow refresh; //waiting for fixed update wasnt long enough
+
+        foreach (var col in obj.GetComponentsInChildren<Collider>(true))
+        {
+            RefreshCollider(col);
+        }
     }
+
+    void RefreshCollider(Collider col)  //forcing unity to recalculate the collider's physics because apparently its lazy and re-enabling doesnt change anything
+    // So as a i understand it, a tree is used for raycasts, lost colliders are removed from the tree but not re-added even when enabled until we do this
+    {
+        // Forces an actual transform update Unity can't optimize away
+        col.transform.localScale *= 1.0001f;
+        col.transform.localScale *= 0.9999f;
+
+        // Temporarily disables/enables again for good measure
+        col.enabled = false;
+        col.enabled = true;
+    }
+
 }

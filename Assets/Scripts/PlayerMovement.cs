@@ -85,12 +85,15 @@ public class PlayerMovement : MonoBehaviour
         checkForInteractable();
     }
 
-    [SerializeField] private float interactRange = 3f;
+    [SerializeField] private float interactRange = 5f;
 
     private Transform checkForInteractable()
     {
         Transform interactableTransform = null;
         IInteractable interactable = null;
+
+
+
 
         if (!GamePaused)
         {
@@ -99,6 +102,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, interactRange))
             {
+                string hitName = hit.transform.name;
+
+                if (hitName == "FinalDoor" || hitName == "ExitEntrance" || hitName == "01_low" || hitName == "03_low")
+                {
+                    Debug.Log("Interactable found: " + hitName);
+                }
+
                 interactableTransform = hit.transform;
                 interactable = interactableTransform.GetComponent<IInteractable>();
             }
