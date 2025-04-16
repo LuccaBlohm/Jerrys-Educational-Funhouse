@@ -9,20 +9,30 @@ public class KeyUnlock : MonoBehaviour, IInteractable
     [SerializeField] private ItemSprite key;
     [SerializeField] private PlayerMovement player;
 
+    public GameObject FinalExit;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        FinalExit.SetActive(false);
     }
 
     public void OnInteract()
     {
         isOpen = !isOpen; //door open logic, move into the key check once configured in main
         animator.SetBool("Open", isOpen);
+        StartCoroutine(WaitAndActivateExit());
         if (key == player.itemHeld)
         {
             Debug.Log("Unlock");
-
         }
+    }
+
+    IEnumerator WaitAndActivateExit()
+    {
+        Debug.Log("Coroutine started!");
+        yield return new WaitForSeconds(0.6f);
+        FinalExit.SetActive(true);
     }
 
 
