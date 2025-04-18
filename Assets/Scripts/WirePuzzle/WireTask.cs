@@ -14,6 +14,8 @@ public class WireTask : MonoBehaviour
     private List<int> _availableLeftWireIndex;
     private List<int> _availableRightWireIndex;
 
+    public GameObject statueRoomLights;
+
     private void Start()
     {
         _availableColors = new List<Color>(_wireColors);
@@ -59,6 +61,15 @@ public class WireTask : MonoBehaviour
             if (successfulWires >= _rightWires.Count)
             {
                 IsTaskCompleted = true;
+                statueRoomLights.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
+                statueRoomLights.SetActive(false);
+                yield return new WaitForSeconds(0.4f);
+                statueRoomLights.SetActive(true);
+                yield return new WaitForSeconds(0.1f);
+                statueRoomLights.SetActive(false);
+                yield return new WaitForSeconds(1.4f);
+                statueRoomLights.SetActive(true);
             }
             yield return new WaitForSeconds(0.1f);
         }
