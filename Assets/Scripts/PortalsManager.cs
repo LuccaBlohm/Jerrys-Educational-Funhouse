@@ -144,13 +144,6 @@ public class PortalsManager : MonoBehaviour
         }
         camera3.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         material3.mainTexture = camera3.targetTexture;
-
-        if (camera4.targetTexture != null)
-        {
-            camera4.targetTexture.Release();
-        }
-        camera4.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        material4.mainTexture = camera4.targetTexture;
     }
 
     // Update is called once per frame
