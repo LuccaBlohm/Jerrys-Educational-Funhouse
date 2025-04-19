@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +24,18 @@ public class ButtonsManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        print("Quit Game");
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(1);
+        print("Reseted Game");
+    }
+
+    public void MainScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void Credits()
