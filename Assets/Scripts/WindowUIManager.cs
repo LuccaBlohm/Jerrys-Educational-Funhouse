@@ -132,7 +132,7 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
             // moves window
             rectTransform.anchoredPosition += eventData.delta / parent.scaleFactor;
 
-            Debug.Log(xBound +", " + yBound);
+            // Debug.Log(xBound +", " + yBound);
 
         }
         else if (resizing)
