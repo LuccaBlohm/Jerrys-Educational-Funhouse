@@ -9,6 +9,11 @@ public class TestJerry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    public void activation()
+    {
         jerryAnim.Play("JerryAnim");
     }
 
