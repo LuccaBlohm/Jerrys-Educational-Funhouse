@@ -45,7 +45,7 @@ public class WireTask : MonoBehaviour
             _availableRightWireIndex.RemoveAt(pickedRightWireIndex);
         }
 
-        statueRoomLights = GameObject.Find("BlueCeilingLights");
+        statueRoomLights = GameObject.Find("BlueCeilingLight");
         jerry = FindAnyObjectByType<TestJerry>();
 
         StartCoroutine(CheckTaskCompletion());
