@@ -16,6 +16,10 @@ public class ButtonsManager : MonoBehaviour
     [SerializeField] private GameObject jerry;
     [SerializeField] private GameObject scerry;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void StartGame()
     {
         StartCoroutine(ScaryTitle());
