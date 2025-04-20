@@ -116,12 +116,17 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     private void drawLine(Vector2 startPoint, Vector2 endPoint)
     {
-        Vector2 midpoint = (startPoint + endPoint) / 2f;
 
-        child.position = midpoint;
+        if (child != null)
+        {
+            Vector2 midpoint = (startPoint + endPoint) / 2f;
 
-        Vector2 dir = startPoint - endPoint;
-        child.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, dir.magnitude);
+            child.position = midpoint;
+
+            Vector2 dir = startPoint - endPoint;
+            child.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+            child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, dir.magnitude);
+        }
+
     }
 }
