@@ -20,7 +20,15 @@ public class WaterBender : MonoBehaviour, IInteractable
     {
         if (key == pm.itemHeld)
         {
-            isFrozen = true;
+            if (!isFrozen)
+            {
+                isFrozen = true;
+            }
+            else
+            {
+                isFrozen = false;
+            }
+
         }
     }
 
