@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterBender : MonoBehaviour
+public class WaterBender : MonoBehaviour, IInteractable
 { 
     public Transform player;
     public List<GameObject> cubeList = new List<GameObject>();
@@ -13,6 +13,16 @@ public class WaterBender : MonoBehaviour
     public bool isFrozen = false;
 
     private PlayerMovement pm;
+
+    [SerializeField] private ItemSprite key;
+
+    public void OnInteract()
+    {
+        if (key == pm.itemHeld)
+        {
+            isFrozen = true;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
