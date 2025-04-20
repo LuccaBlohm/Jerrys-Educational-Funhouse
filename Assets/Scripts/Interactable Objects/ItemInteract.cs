@@ -11,7 +11,7 @@ public class ItemInteract : MonoBehaviour, IInteractable
     {
         if (key == player.itemHeld)
         {
-
+            Destroy(gameObject);
         }
 
     }
