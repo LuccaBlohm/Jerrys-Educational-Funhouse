@@ -52,7 +52,7 @@ public class PortalSwitcher : MonoBehaviour
     public void UpdatePortals(bool a, bool b, bool c, bool d, bool e)
     {
         Debug.Log("Updating Portals");
-        ClassroomtoClassroom.SetActive(!a);//note this goes from classroom portal1 to dump portal (classroom 2)
+        //ClassroomtoClassroom.SetActive(!a);//note this goes from classroom portal1 to dump portal (classroom 2)
         ClassroomtoPiano.SetActive(a);//this goes from classroom portal1 to piano
         //PianotoClassroom.SetActive(a); //the piano portal to classroom just always goes to the same place in classroom
 
