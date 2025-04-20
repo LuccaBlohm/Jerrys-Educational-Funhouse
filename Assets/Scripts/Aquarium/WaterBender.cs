@@ -20,7 +20,15 @@ public class WaterBender : MonoBehaviour, IInteractable
     {
         if (key == pm.itemHeld)
         {
-            isFrozen = true;
+            if (!isFrozen)
+            {
+                isFrozen = true;
+            }
+            else
+            {
+                isFrozen = false;
+            }
+
         }
     }
 
@@ -38,10 +46,11 @@ public class WaterBender : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!pm.isInWaterEffectZone)
         {
             isFrozen = false;
-        }
+        }*/
 
         foreach (GameObject cube in cubeList)
         {

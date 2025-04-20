@@ -15,6 +15,7 @@ public class ItemSprite : MonoBehaviour, IInteractable
     private void Start()
     {
         cameraTransform = Camera.main.transform;
+        itemCanvas = playerTransform.GetChild(2).gameObject;
         itemVisual = itemCanvas.transform.GetChild(0).GetComponent<RawImage>();
     }
 
