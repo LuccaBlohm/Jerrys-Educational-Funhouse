@@ -11,9 +11,14 @@ public class ItemInteract : MonoBehaviour, IInteractable
     {
         if (key == player.itemHeld)
         {
-            Destroy(gameObject);
+            interactableBehavior();
         }
+    }
 
+    protected virtual void interactableBehavior()
+    {
+        Destroy(gameObject);
+        Debug.Log("Interacted successfully");
     }
 
 }
