@@ -23,6 +23,8 @@ public class PortalsManager : MonoBehaviour
     public Camera camera6;
     public Camera camera7;
     public Camera camera8;
+    public Camera cameraEvan;
+    public Camera cameraDaly;
 
     public Material materialB;
     public Material materialA;
@@ -43,6 +45,8 @@ public class PortalsManager : MonoBehaviour
     public Material material6;
     public Material material7;
     public Material material8;
+    public Material materialEvan;   
+    public Material materialDaly;
 
     // Start is called before the first frame update
     void Start()
@@ -130,6 +134,20 @@ public class PortalsManager : MonoBehaviour
         }
         camera1.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         material1.mainTexture = camera1.targetTexture;
+
+        if (cameraEvan.targetTexture != null)
+        {
+            cameraEvan.targetTexture.Release();
+        }
+        cameraEvan.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialEvan.mainTexture = cameraEvan.targetTexture;
+
+        if (cameraDaly.targetTexture != null)
+        {
+            cameraDaly.targetTexture.Release();
+        }
+        cameraDaly.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialDaly.mainTexture = cameraDaly.targetTexture;
     }
 
     // Update is called once per frame
