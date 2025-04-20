@@ -24,6 +24,7 @@ public class LockedDoor : MonoBehaviour, IInteractable, IPopUpSpawner
             lockPopUpConnection.ConnectToOrigin(gameObject);
             lockPopUpConnection.PassLockCombo(lockCombo);
             popUpOn = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
