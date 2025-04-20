@@ -72,9 +72,12 @@ public class PianoPuzzle : MonoBehaviour
         while (Vector3.Distance(leverPanel.transform.position, panelEnd) > 0.01f)
         {
             leverPanel.transform.position = Vector3.Lerp(leverPanel.transform.position, panelEnd, Time.deltaTime * slideSpeed);
+            StartCoroutine(DelayedRefresh(Lever));
             yield return null;
         }
     }
+
+    public GameObject Lever;
 
     IEnumerator SpotlightsRotate()
     {
@@ -87,5 +90,27 @@ public class PianoPuzzle : MonoBehaviour
 
         spotlightAnimator.Play("Spotlights Rotation");
         yield return null;
+    }
+
+    IEnumerator DelayedRefresh(GameObject obj)
+    {
+        yield return new WaitForSeconds(6f); //wait for a whole second to allow refresh; //waiting for fixed update wasnt long enough
+
+        foreach (var col in obj.GetComponentsInChildren<Collider>(true))
+        {
+            RefreshCollider(col);
+        }
+    }
+
+    void RefreshCollider(Collider col)  //forcing unity to recalculate the collider's physics because apparently its lazy and re-enabling doesnt change anything
+    // So as a i understand it, a tree is used for raycasts, lost colliders are removed from the tree but not re-added even when enabled until we do this
+    {
+        // Forces an actual transform update Unity can't optimize away
+        col.transform.localScale *= 1.0001f;
+        col.transform.localScale *= 0.9999f;
+
+        // Temporarily disables/enables again for good measure
+        col.enabled = false;
+        col.enabled = true;
     }
 }

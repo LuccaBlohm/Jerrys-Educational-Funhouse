@@ -72,3 +72,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Material/MaterialEvan.mat
+Assets/Material/MaterialDaly.mat
+Assets/Material/CMaterial1.mat
+Assets/Material/CameraMat_K.mat
+Assets/Material/CameraMat_J.mat
+Assets/Material/CameraMat_I.mat
+Assets/Material/CameraMat_H.mat

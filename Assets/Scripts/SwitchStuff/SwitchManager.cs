@@ -8,6 +8,9 @@ public class SwitchManager : MonoBehaviour
     public delegate void StateChangeDelegate(bool a, bool b, bool c, bool d, bool e);
     public static event StateChangeDelegate OnStateChanged;
 
+    public delegate void StateChangeDelegatePortals(bool a, bool b, bool c, bool d, bool e);
+    public static event StateChangeDelegate OnStateChangedPortals;
+
     public bool a = false;
     public bool b = false;
     public bool c = false;
@@ -81,6 +84,7 @@ public class SwitchManager : MonoBehaviour
             StartCoroutine(DelayedRefresh(FinalDoor));
         }
         OnStateChanged?.Invoke(a, b, c, d, e);
+        OnStateChangedPortals?.Invoke(a, b, c, d, e);
     }
 
     IEnumerator DelayedRefresh(GameObject obj)
