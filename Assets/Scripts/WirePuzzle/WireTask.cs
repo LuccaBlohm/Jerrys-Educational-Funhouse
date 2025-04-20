@@ -15,6 +15,7 @@ public class WireTask : MonoBehaviour
     private List<int> _availableRightWireIndex;
 
     public GameObject statueRoomLights;
+    public TestJerry jerry;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class WireTask : MonoBehaviour
         }
 
         statueRoomLights = GameObject.Find("BlueCeilingLights");
+        jerry = FindAnyObjectByType<TestJerry>();
 
         StartCoroutine(CheckTaskCompletion());
     }
@@ -72,6 +74,7 @@ public class WireTask : MonoBehaviour
                 statueRoomLights.SetActive(false);
                 yield return new WaitForSeconds(1.4f);
                 statueRoomLights.SetActive(true);
+                jerry.activation();
             }
             yield return new WaitForSeconds(0.1f);
         }
