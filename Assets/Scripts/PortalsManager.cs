@@ -12,7 +12,19 @@ public class PortalsManager : MonoBehaviour
     public Camera cameraF;
     public Camera cameraG;
     public Camera cameraH;
-
+    public Camera cameraI;
+    public Camera cameraJ;
+    public Camera cameraK;
+    public Camera camera1;
+    public Camera camera2;
+    public Camera camera3;  
+    public Camera camera4;
+    public Camera camera5;
+    public Camera camera6;
+    public Camera camera7;
+    public Camera camera8;
+    public Camera cameraEvan;
+    public Camera cameraDaly;
 
     public Material materialB;
     public Material materialA;
@@ -22,6 +34,20 @@ public class PortalsManager : MonoBehaviour
     public Material materialF;
     public Material materialG;
     public Material materialH;
+    public Material materialI;
+    public Material materialJ;
+    public Material materialK;
+    public Material material1;
+    public Material material2;
+    public Material material3;
+    public Material material4;
+    public Material material5;
+    public Material material6;
+    public Material material7;
+    public Material material8;
+    public Material materialEvan;   
+    public Material materialDaly;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +106,48 @@ public class PortalsManager : MonoBehaviour
         }
         cameraH.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         materialH.mainTexture = cameraH.targetTexture;
+
+        if (cameraI.targetTexture != null)
+        {
+            cameraI.targetTexture.Release();
+        }
+        cameraI.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialI.mainTexture = cameraI.targetTexture;
+
+        if (cameraJ.targetTexture != null)
+        {
+            cameraJ.targetTexture.Release();
+        }
+        cameraJ.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialJ.mainTexture = cameraJ.targetTexture;
+
+        if (cameraK.targetTexture != null)
+        {
+            cameraK.targetTexture.Release();
+        }
+        cameraK.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialK.mainTexture = cameraK.targetTexture;
+
+        if (camera1.targetTexture != null)
+        {
+            camera1.targetTexture.Release();
+        }
+        camera1.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        material1.mainTexture = camera1.targetTexture;
+
+        if (cameraEvan.targetTexture != null)
+        {
+            cameraEvan.targetTexture.Release();
+        }
+        cameraEvan.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialEvan.mainTexture = cameraEvan.targetTexture;
+
+        if (cameraDaly.targetTexture != null)
+        {
+            cameraDaly.targetTexture.Release();
+        }
+        cameraDaly.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        materialDaly.mainTexture = cameraDaly.targetTexture;
     }
 
     // Update is called once per frame

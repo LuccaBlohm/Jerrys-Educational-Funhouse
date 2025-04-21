@@ -22,6 +22,7 @@ public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
 
             popUpConnection.ConnectToOrigin(gameObject);
             popUpOn = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

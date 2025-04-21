@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PianoPuzzle : MonoBehaviour
@@ -9,10 +10,17 @@ public class PianoPuzzle : MonoBehaviour
     private int currentRound = 0;
     private string currentInput = "";
 
+    public GameObject leverPanel;
+    private Vector3 panelEnd;
+    public float slideSpeed = .06f;
+
+    public Animator spotlightAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ActivateSpotlights());
+        panelEnd = leverPanel.transform.position - new Vector3(0, 17.33f, 0);
     }
 
     // Update is called once per frame
@@ -31,14 +39,16 @@ public class PianoPuzzle : MonoBehaviour
             if (lastFew == puzzleWords[currentRound])
             {
                 currentRound++;
-                if (currentRound < puzzleWords.Count)
+                if (currentRound < (puzzleWords.Count))
                 {
                     currentInput = "";
                     StartCoroutine(ActivateSpotlights());
                 }
                 else
                 {
-                    // Code to trigger lever wall and spotlights rotation
+                    spotlights[3].SetActive(false);
+                    StartCoroutine(MoveLeverPanel());
+                    StartCoroutine(SpotlightsRotate());
                 }
             }
         }
@@ -48,12 +58,59 @@ public class PianoPuzzle : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             spotlights[i].SetActive(false);
         }
 
         yield return new WaitForSeconds(1.5f);
         spotlights[currentRound].SetActive(true);
+    }
+
+    IEnumerator MoveLeverPanel()
+    {
+        while (Vector3.Distance(leverPanel.transform.position, panelEnd) > 0.01f)
+        {
+            leverPanel.transform.position = Vector3.Lerp(leverPanel.transform.position, panelEnd, Time.deltaTime * slideSpeed);
+            StartCoroutine(DelayedRefresh(Lever));
+            yield return null;
+        }
+    }
+
+    public GameObject Lever;
+
+    IEnumerator SpotlightsRotate()
+    {
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < 4; i++)
+        {
+            spotlights[i].SetActive(true);
+        }
+
+        spotlightAnimator.Play("Spotlights Rotation");
+        yield return null;
+    }
+
+    IEnumerator DelayedRefresh(GameObject obj)
+    {
+        yield return new WaitForSeconds(6f); //wait for a whole second to allow refresh; //waiting for fixed update wasnt long enough
+
+        foreach (var col in obj.GetComponentsInChildren<Collider>(true))
+        {
+            RefreshCollider(col);
+        }
+    }
+
+    void RefreshCollider(Collider col)  //forcing unity to recalculate the collider's physics because apparently its lazy and re-enabling doesnt change anything
+    // So as a i understand it, a tree is used for raycasts, lost colliders are removed from the tree but not re-added even when enabled until we do this
+    {
+        // Forces an actual transform update Unity can't optimize away
+        col.transform.localScale *= 1.0001f;
+        col.transform.localScale *= 0.9999f;
+
+        // Temporarily disables/enables again for good measure
+        col.enabled = false;
+        col.enabled = true;
     }
 }

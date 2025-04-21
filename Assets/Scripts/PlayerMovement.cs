@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         // ui does not seem to block the raycast otherwise
-        if (CursorBehavior.overUI)
+        if (CursorBehavior.overUI || GamePaused)
         {
             return;
         }
@@ -224,6 +224,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WaterEffectZone"))
+        {
+            isInWaterEffectZone = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("WaterEffectZone"))
         {
