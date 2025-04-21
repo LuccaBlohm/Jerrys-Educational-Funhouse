@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public interface IPopUpSpawner
 {
@@ -27,11 +28,14 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
     protected Vector2 clickPosition;
 
+    protected RectTransform contentTransform;
+
     void Awake()
     {
         parent = gameObject.transform.parent.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         rectTransformMaxSize = new Vector2(parent.renderingDisplaySize.x, parent.renderingDisplaySize.y);
+        contentTransform = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
     }
 
     // allows pop up to affect origin interactable object
@@ -217,8 +221,6 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
 
             }*/
 
-            // fix not being able to stretch horizontal when touching bottom and top bound
-            // and not being able to stretch vertical when touching left and right
             switch (xMinPassed, yMinPassed, xBound, yBound)
             {
                 case (false, false, bound.none, bound.none):
@@ -425,6 +427,18 @@ public class WindowUIManager : MonoBehaviour, IDragHandler,
                 break;
 
 
+        }
+    }
+
+    public void addTexture(Texture tex, Vector2 size)
+    {
+        RawImage img = transform.GetChild(0).GetChild(0).GetComponent<RawImage>();
+
+        if (img != null)
+        {
+            img.texture = tex;
+
+            contentTransform.sizeDelta = size;
         }
     }
 
