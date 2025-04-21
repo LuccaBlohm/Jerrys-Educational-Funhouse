@@ -125,7 +125,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
             Vector2 dir = startPoint - endPoint;
             child.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-            child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, dir.magnitude);
+            child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, dir.magnitude/(_canvas.scaleFactor*2));
         }
 
     }
