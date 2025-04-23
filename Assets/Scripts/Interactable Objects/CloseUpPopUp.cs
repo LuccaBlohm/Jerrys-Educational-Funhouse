@@ -20,7 +20,10 @@ public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
         popUpTransform = popUp.GetComponent<RectTransform>();
         popUpCanvas = canvasTransform.GetComponent<Canvas>();
         sr = GetComponent<SpriteRenderer>();
-        tex = sr.sprite.texture;
+        if (sr != null)
+        {
+            tex = sr.sprite.texture;
+        }
     }
 
 
