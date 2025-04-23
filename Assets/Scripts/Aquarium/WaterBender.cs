@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterBender : MonoBehaviour, IInteractable
+public class WaterBender : MonoBehaviour //, IInteractable
 { 
     public Transform player;
     public List<GameObject> cubeList = new List<GameObject>();
@@ -14,8 +15,9 @@ public class WaterBender : MonoBehaviour, IInteractable
 
     private PlayerMovement pm;
 
-    [SerializeField] private ItemSprite key;
+    [SerializeField] private ItemSprite iceBall;
 
+    /*
     public void OnInteract()
     {
         if (key == pm.itemHeld)
@@ -29,6 +31,25 @@ public class WaterBender : MonoBehaviour, IInteractable
                 isFrozen = false;
             }
 
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ice Ball")
+        {
+            isFrozen = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (pm.itemHeld == iceBall)
+            {
+                isFrozen = false;
+            }
         }
     }
 
