@@ -26,7 +26,7 @@ public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
 
     public void OnInteract()
     {
-        if (!popUpOn)
+        if (!popUpOn && popUpConnection == null)
         {
             popUpConnection = Instantiate(popUp, new Vector2(   Random.Range(popUpTransform.sizeDelta.x/2,
                                                                              popUpCanvas.renderingDisplaySize.x - popUpTransform.sizeDelta.x/2),
