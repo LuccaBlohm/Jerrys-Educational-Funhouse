@@ -16,9 +16,12 @@ public class ButtonsManager : MonoBehaviour
     [SerializeField] private GameObject jerry;
     [SerializeField] private GameObject scerry;
 
+    [SerializeField] private AudioManager _aM;
+
     public void StartGame()
     {
         StartCoroutine(ScaryTitle());
+        _aM.audioSource.clip = null;
     }
 
     public void QuitGame()
