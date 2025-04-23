@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction Turning;
 
     private InputAction Interact;
+    private InputAction dropItem;
 
     private InputAction Jump;
 
@@ -59,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
         Jump.performed += ctx => TryJump();
         Pause = playerInput.currentActionMap.FindAction("Pause");
         Pause.performed += ctx => PauseGame();
+        dropItem = playerInput.currentActionMap.FindAction("Drop Item");
+        dropItem.performed += ctx => itemDrop();
+
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -154,14 +158,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Interactable found");
             interactable.OnInteract();
         }
-        else
-        {
-            if (itemHeld != null)
-            {
-                itemHeld.Drop();
-                itemHeld = null;
-            }
-        }
     }
 
     private void tryItemPickUp(ItemSprite item)
@@ -251,6 +247,15 @@ public class PlayerMovement : MonoBehaviour
     {
         print("ROTATION STATION");
         rotationOffset += 90;
+    }
+
+    private void itemDrop()
+    {
+        if (itemHeld != null)
+        {
+            itemHeld.Drop();
+            itemHeld = null;
+        }
     }
 
 }

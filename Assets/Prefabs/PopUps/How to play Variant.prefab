@@ -72,16 +72,19 @@ MonoBehaviour:
 
 
     Press
-    Space to jump!
+    SPACE to jump!
 
 
-    Click to interact!
+    Left Click to interact!
 
 
-    And most importantly:
+    Right Click to drop items!
 
-    Have
-    fun!'
+
+    And
+    most importantly:
+
+    Have fun!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -456,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 291.118
+      value: 331.1009
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,11 +491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 486.258
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.68
+      value: -12.9829
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
