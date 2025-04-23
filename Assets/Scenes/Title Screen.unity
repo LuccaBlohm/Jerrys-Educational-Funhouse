@@ -768,7 +768,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -870,6 +870,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9ea819c73576daf4d8829d5cba9f8b18, type: 3}
   - {fileID: 8300000, guid: 84712b88d8ff2fc40a425d63ced04014, type: 3}
   - {fileID: 8300000, guid: c4ec49ae550227d47a66bad1e10c7da4, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &536464729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,6 +2222,7 @@ MonoBehaviour:
   scaryBackground: {fileID: 129032811}
   jerry: {fileID: 1784789903}
   scerry: {fileID: 1888318754}
+  _aM: {fileID: 508775338}
 --- !u!1 &1170659044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,7 +3621,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1030856880}
         m_TargetAssemblyTypeName: ButtonsManager, Assembly-CSharp
-        m_MethodName: QuitGane
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4634,7 +4636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.2201, y: 17.4711}
+  m_AnchoredPosition: {x: -148, y: 17.4711}
   m_SizeDelta: {x: 996.2573, y: 373.9524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100828110
@@ -4650,7 +4652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 2135705812}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
