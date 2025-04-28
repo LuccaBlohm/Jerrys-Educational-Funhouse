@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] audioClips;  // Array to hold audio clips
-    private AudioSource audioSource; // The audio source component to play the clips
+    public AudioSource audioSource; // The audio source component to play the clips
 
     void Start()
     {

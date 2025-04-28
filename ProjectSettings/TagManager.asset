@@ -9,6 +9,7 @@ TagManager:
   - Clickable
   - WaterEffectZone
   - Key
+  - Ice Ball
   layers:
   - Default
   - TransparentFX
