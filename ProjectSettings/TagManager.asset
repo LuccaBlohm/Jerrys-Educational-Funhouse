@@ -10,6 +10,7 @@ TagManager:
   - WaterEffectZone
   - Key
   - Ice Ball
+  - PianoPuzzleTag
   layers:
   - Default
   - TransparentFX

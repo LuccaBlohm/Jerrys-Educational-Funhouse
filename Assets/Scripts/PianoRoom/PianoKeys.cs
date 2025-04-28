@@ -12,6 +12,7 @@ public class PianoKeys : MonoBehaviour
     public string keyLetter;
     private PianoPuzzle pp;
     private AudioSource audioSource;
+    private bool keyBuffer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,13 @@ public class PianoKeys : MonoBehaviour
             transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime * 15f);
 
 
-            if (!hasPlayed && Vector3.Distance(transform.localPosition, targetPosition) < 0.01f)
+            if (!keyBuffer && !hasPlayed && Vector3.Distance(transform.localPosition, targetPosition) < 0.01f)
             {
                 audioSource.Play();
                 hasPlayed = true;
                 pp.RegisterKeyPress(keyLetter);
+                keyBuffer = true;
+                StartCoroutine(KeyPressGap());
             }
         }
 
@@ -62,5 +65,11 @@ public class PianoKeys : MonoBehaviour
         {
             isPressed = false;
         }
+    }
+
+    IEnumerator KeyPressGap()
+    {
+        yield return new WaitForSeconds(.4f);
+        keyBuffer = false;
     }
 }
