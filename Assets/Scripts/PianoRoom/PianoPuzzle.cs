@@ -16,17 +16,26 @@ public class PianoPuzzle : MonoBehaviour
 
     public Animator spotlightAnimator;
 
+    private PlayerMovement pm;
+    public Transform player;
+    public bool ppBegin = false;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ActivateSpotlights());
         panelEnd = leverPanel.transform.position - new Vector3(0, 17.33f, 0);
+        pm = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (pm.pianoPuzzleBegin && !ppBegin)
+        {
+            ppBegin = true;
+            StartCoroutine(TurnOnFirstSpotlight());
+        }
     }
 
     public void RegisterKeyPress(string key)
@@ -62,9 +71,6 @@ public class PianoPuzzle : MonoBehaviour
         {
             spotlights[i].SetActive(false);
         }
-
-        yield return new WaitForSeconds(1.5f);
-        spotlights[currentRound].SetActive(true);
     }
 
     IEnumerator MoveLeverPanel()
@@ -90,6 +96,13 @@ public class PianoPuzzle : MonoBehaviour
 
         spotlightAnimator.Play("Spotlights Rotation");
         yield return null;
+    }
+
+    IEnumerator TurnOnFirstSpotlight()
+    {
+        yield return new WaitForSeconds(1f);
+        spotlights[currentRound].SetActive(true);
+        ppBegin = false;
     }
 
     IEnumerator DelayedRefresh(GameObject obj)

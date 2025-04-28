@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
 
     public bool isInWaterEffectZone;
+    public bool pianoPuzzleBegin;
 
     public Transform orientation;
 
@@ -226,6 +227,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("WaterEffectZone"))
         {
             isInWaterEffectZone = true;
+        }
+
+        if (other.CompareTag("PianoPuzzleTag"))
+        {
+            pianoPuzzleBegin = true;
         }
     }
 

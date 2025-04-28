@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1170659046}
   m_HandleRect: {fileID: 1170659045}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.45726585
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4766,10 +4766,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lucca Blohm: Producer
 
-    Evan Daly: Programmer
+    Evan Daly: Programmer / Portal Master
 
-    Alison Stalkfleet:
-    Programmer
+    Alison
+    Stalkfleet: Programmer
 
     Matthew Cruz: Programmer
 
@@ -4800,6 +4800,17 @@ MonoBehaviour:
     Music by Andorios
 
     Found Footage Sound Pack by Waving Ant
+
+
+
+    Fonts Used:
+
+    Dark
+    College by Woodcutter
+
+    Bloody Frozen by K Gold
+
+    Kindergarten by Geronimo
 
 '
   m_isRightToLeft: 0
