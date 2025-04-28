@@ -265,5 +265,4 @@ public class PlayerMovement : MonoBehaviour
             itemHeld = null;
         }
     }
-
 }

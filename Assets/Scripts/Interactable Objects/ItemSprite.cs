@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +10,16 @@ public class ItemSprite : MonoBehaviour, IInteractable
     [SerializeField] private RawImage itemVisual;
     [SerializeField] private Texture itemTexture;
 
+    [SerializeField] private AudioSource _dropAudioSource;
+    [SerializeField] private AudioSource _interactAudioSource;
+
     private void Start()
     {
         cameraTransform = Camera.main.transform;
         itemCanvas = playerTransform.GetChild(2).gameObject;
         itemVisual = itemCanvas.transform.GetChild(0).GetComponent<RawImage>();
+        _dropAudioSource.Pause();
+        _interactAudioSource.Pause();
     }
 
     public void OnInteract()
@@ -25,6 +28,7 @@ public class ItemSprite : MonoBehaviour, IInteractable
 
         itemVisual.texture = itemTexture;
         itemCanvas.SetActive(true);
+        _dropAudioSource.Play();
     }
 
     public void AttachToPlayer(Transform player)
@@ -47,6 +51,7 @@ public class ItemSprite : MonoBehaviour, IInteractable
         itemCanvas.SetActive(false);
         transform.position = playerTransform.position;
         gameObject.SetActive(true);
+        _dropAudioSource.Play();
     }
 
     private void FixedUpdate()

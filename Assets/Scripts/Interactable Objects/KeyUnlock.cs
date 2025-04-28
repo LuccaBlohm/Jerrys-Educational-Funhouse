@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyUnlock : ItemInteract
@@ -49,6 +48,4 @@ public class KeyUnlock : ItemInteract
         yield return new WaitForSeconds(0.6f);
         FinalExit.SetActive(true);
     }
-
-
 }
