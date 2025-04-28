@@ -31,7 +31,7 @@ public class PianoPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pm.pianoPuzzleBegin)
+        if (pm.pianoPuzzleBegin && !ppBegin)
         {
             ppBegin = true;
             StartCoroutine(TurnOnFirstSpotlight());
