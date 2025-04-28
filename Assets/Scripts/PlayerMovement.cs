@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         cam = transform.GetChild(1);
         camComponent = cam.GetComponent<Camera>();
         camComponent = Camera.main;
+
+        Physics.gravity = new Vector3(0,-9.8f * 2,0);
     }
 
     private void Update()
