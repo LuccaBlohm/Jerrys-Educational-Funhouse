@@ -11,7 +11,6 @@ public class ItemSprite : MonoBehaviour, IInteractable
     [SerializeField] private Texture itemTexture;
 
     [SerializeField] private AudioSource _dropAudioSource;
-    [SerializeField] private AudioSource _interactAudioSource;
 
     private void Start()
     {
@@ -19,7 +18,6 @@ public class ItemSprite : MonoBehaviour, IInteractable
         itemCanvas = playerTransform.GetChild(2).gameObject;
         itemVisual = itemCanvas.transform.GetChild(0).GetComponent<RawImage>();
         _dropAudioSource.Pause();
-        _interactAudioSource.Pause();
     }
 
     public void OnInteract()

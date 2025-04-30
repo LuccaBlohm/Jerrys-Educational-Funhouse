@@ -39,7 +39,7 @@ public class TestJerry : MonoBehaviour
         statueRoomLights.SetActive(true);
         jerryAnim.Play("JerryAnim");
         StopAllCoroutines();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         shouldRotate = false;
     }
 

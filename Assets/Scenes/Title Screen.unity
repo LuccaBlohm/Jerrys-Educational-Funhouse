@@ -402,9 +402,9 @@ RectTransform:
   m_Father: {fileID: 2100828109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &206491690
 MonoBehaviour:
@@ -768,7 +768,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1086,8 +1086,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1170659046}
   m_HandleRect: {fileID: 1170659045}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.45726585
+  m_Value: 1
+  m_Size: 0.2820255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2255,8 +2255,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 68071741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.54273415}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3517,7 +3517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1449254094
 Transform:
   m_ObjectHideFlags: 0
@@ -3684,7 +3684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1565723156
 Transform:
   m_ObjectHideFlags: 0
@@ -4742,7 +4742,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 817.8008}
+  m_SizeDelta: {x: 0, y: 1325.9524}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2135705813
 MonoBehaviour:
@@ -4764,53 +4764,67 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lucca Blohm: Producer
+  m_text: 'Lucca Blohm: Producer/ Programmer
 
-    Evan Daly: Programmer / Portal Master
+    Evan Daly: Programmer / Portal
+    Master
 
-    Alison
-    Stalkfleet: Programmer
+    Alison Stalkfleet: Programmer/ Artist
 
-    Matthew Cruz: Programmer
+    Matthew Cruz: Programmer/
+    Portal Apprentice/ Artist
 
-    Mason Weaver: Designer
+    Mason Weaver: Designer/ Programmer/ Sound Designer
 
     Joseph
-    Gross: Designer
+    Gross: Designer/Programmer
 
-    Timothy Cederberg: UI/UX Designer
+    Timothy Cederberg: UI/UX Designer/ Programmer
 
 
 
-    Audio/Sounds Used:
+    Audio/Sounds
+    Used:
 
-    Forword
-    Motion by SHYLIFE
+    Forword Motion by SHYLIFE
 
     Catch a Star by ZestSound
 
-    Fun in the Sun by Bubblz
+    Fun
+    in the Sun by Bubblz
 
-    Soul
-    Swingin'' By Richard Farrell
+    Soul Swingin'' By Richard Farrell
 
-    Happiest Day by Louis Adrien
-
-    Circus Fast
-    Music by Andorios
+    Happiest Day
+    by Louis Adrien
 
     Found Footage Sound Pack by Waving Ant
 
+    Home Office-
+    Neon Light Buzzing by Badlands Sound
+
+    White Magic - Ice Wind, Airy Impact
+    by Cristian Lucchetta
+
+    The Switch - Lever, Pushing, Clicking, Automatic Rebound,
+    On, Off by SoundBits
+
+    Household - Metal Grill Door, Closing byInspectorJ
+
+    Natural
+    Shock - Closing a Metal Locker Door, Squeaking, Resonant byMechanical Wave
 
 
-    Fonts Used:
 
-    Dark
-    College by Woodcutter
+    Fonts
+    Used:
+
+    Dark College by Woodcutter
 
     Bloody Frozen by K Gold
 
-    Kindergarten by Geronimo
+    Kindergarten
+    by Geronimo
 
 '
   m_isRightToLeft: 0
@@ -4849,9 +4863,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 1
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4875,7 +4889,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 4.0650024}
+  m_margin: {x: 0, y: 0, z: 0, w: -43.10968}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
