@@ -768,7 +768,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4806,8 +4806,8 @@ MonoBehaviour:
     White Magic - Ice Wind, Airy Impact
     by Cristian Lucchetta
 
-    The Switch - Lever, Pushing, Clicking, Automatic
-    Rebound, On, Off by SoundBits
+    The Switch - Lever, Pushing, Clicking, Automatic Rebound,
+    On, Off by SoundBits
 
     Household - Metal Grill Door, Closing byInspectorJ
 
