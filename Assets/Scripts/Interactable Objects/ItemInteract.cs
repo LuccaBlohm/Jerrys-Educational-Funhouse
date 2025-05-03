@@ -22,6 +22,7 @@ public class ItemInteract : MonoBehaviour, IInteractable, IPopUpSpawner
                 _acceptSound.Play();
                 _acceptSound = null;
                 _rejectSound = null;
+                popUpOn = true;
             }
 
             interactableBehavior();
