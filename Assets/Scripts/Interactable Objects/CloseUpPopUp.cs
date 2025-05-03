@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
@@ -15,8 +13,11 @@ public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
     private Texture tex;
     [SerializeField] private Vector2 textureSize;
 
+    [SerializeField] private AudioSource _pickupAudio;
+
     private void Start()
     {
+        _pickupAudio.Pause();
         popUpTransform = popUp.GetComponent<RectTransform>();
         popUpCanvas = canvasTransform.GetComponent<Canvas>();
         sr = GetComponent<SpriteRenderer>();
@@ -42,6 +43,7 @@ public class CloseUpPopUp : MonoBehaviour, IInteractable, IPopUpSpawner
             popUpConnection.ConnectToOrigin(gameObject);
             popUpOn = true;
             Cursor.lockState = CursorLockMode.Confined;
+            _pickupAudio.Play();
         }
     }
 

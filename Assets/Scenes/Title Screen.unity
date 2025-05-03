@@ -4781,6 +4781,38 @@ MonoBehaviour:
 
     Timothy Cederberg: UI/UX Designer/ Programmer
 
+
+    Audio/Sounds
+    Used:
+
+    Forword Motion by SHYLIFE
+
+    Catch a Star by ZestSound
+
+    Fun
+    in the Sun by Bubblz
+
+    Soul Swingin'' By Richard Farrell
+
+    Happiest Day
+    by Louis Adrien
+
+    Found Footage Sound Pack by Waving Ant
+
+    Home Office-
+    Neon Light Buzzing by Badlands Sound
+
+    White Magic - Ice Wind, Airy Impact
+    by Cristian Lucchetta
+
+    The Switch - Lever, Pushing, Clicking, Automatic Rebound,
+    On, Off by SoundBits
+
+    Household - Metal Grill Door, Closing byInspectorJ
+
+    Natural
+    Shock - Closing a Metal Locker Door, Squeaking, Resonant byMechanical Wave
+
     Heavy
     Wood - Dragging a Catapult Across a Wooden Deck, Floor Creaks, Wheels Movement
     by Alexander Kopeikin
@@ -4795,51 +4827,18 @@ MonoBehaviour:
     RPG
     Game - Metallic Clunk, Tool Drop by Ni Sound
 
-
-
-    Audio/Sounds Used:
-
-    Forword
-    Motion by SHYLIFE
-
-    Catch a Star by ZestSound
-
-    Fun in the Sun by Bubblz
-
-    Soul
-    Swingin'' By Richard Farrell
-
-    Happiest Day by Louis Adrien
-
-    Found Footage
-    Sound Pack by Waving Ant
-
-    Home Office- Neon Light Buzzing by Badlands Sound
-
-    White
-    Magic - Ice Wind, Airy Impact by Cristian Lucchetta
-
-    The Switch - Lever,
-    Pushing, Clicking, Automatic Rebound, On, Off by SoundBits
-
-    Household - Metal
-    Grill Door, Closing byInspectorJ
-
-    Natural Shock - Closing a Metal Locker
-    Door, Squeaking, Resonant byMechanical Wave
-
+    Paper Collection - Thick Page,
+    Flipping by Cinematic Sound Design
 
 
     Fonts Used:
 
-    Dark College
-    by Woodcutter
+    Dark College by Woodcutter
 
-    Bloody Frozen by K Gold
+    Bloody
+    Frozen by K Gold
 
-    Kindergarten by Geronimo
-
-'
+    Kindergarten by Geronimo'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
