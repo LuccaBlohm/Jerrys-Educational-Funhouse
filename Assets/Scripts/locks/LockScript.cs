@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,11 +11,14 @@ public class LockScript : WindowUIManager
 
     private LockedDoor lockedDoor;
 
+    [SerializeField] private AudioSource _unlockedDoor;
+
     private void Awake()
     {
         parent = gameObject.transform.parent.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         rectTransformMaxSize = new Vector2(parent.renderingDisplaySize.x, parent.renderingDisplaySize.y);
+        _unlockedDoor.Pause();
     }
 
     public override void ConnectToOrigin(GameObject origin)
@@ -94,12 +95,7 @@ public class LockScript : WindowUIManager
         if (lockedDoor != null)
         {
             lockedDoor.ComboCorrect();
+            _unlockedDoor.Play();
         }
-
-    }
-
-    void Update()
-    {
-        
     }
 }
