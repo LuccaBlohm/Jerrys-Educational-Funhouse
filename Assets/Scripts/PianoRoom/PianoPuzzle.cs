@@ -20,12 +20,16 @@ public class PianoPuzzle : MonoBehaviour
     public Transform player;
     public bool ppBegin = false;
 
+    private AudioSource spotlightOn;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ActivateSpotlights());
         panelEnd = leverPanel.transform.position - new Vector3(0, 17.33f, 0);
         pm = player.GetComponent<PlayerMovement>();
+
+        spotlightOn = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,7 +38,7 @@ public class PianoPuzzle : MonoBehaviour
         if (pm.pianoPuzzleBegin && !ppBegin)
         {
             ppBegin = true;
-            StartCoroutine(TurnOnFirstSpotlight());
+            StartCoroutine(TurnOnSpotlightByRound());
         }
     }
 
@@ -51,6 +55,7 @@ public class PianoPuzzle : MonoBehaviour
                 if (currentRound < (puzzleWords.Count))
                 {
                     currentInput = "";
+                    ppBegin = false;
                     StartCoroutine(ActivateSpotlights());
                 }
                 else
@@ -71,6 +76,9 @@ public class PianoPuzzle : MonoBehaviour
         {
             spotlights[i].SetActive(false);
         }
+
+        spotlightOn.Play();
+        yield return null;
     }
 
     IEnumerator MoveLeverPanel()
@@ -98,11 +106,12 @@ public class PianoPuzzle : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator TurnOnFirstSpotlight()
+    IEnumerator TurnOnSpotlightByRound()
     {
         yield return new WaitForSeconds(1f);
+        spotlightOn.Play();
         spotlights[currentRound].SetActive(true);
-        ppBegin = false;
+        yield return null;
     }
 
     IEnumerator DelayedRefresh(GameObject obj)

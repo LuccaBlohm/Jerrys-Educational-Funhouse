@@ -13,6 +13,8 @@ public class TestJerry : MonoBehaviour
 
     public bool shouldRotate = false;
 
+    public AudioSource ceilingLightSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class TestJerry : MonoBehaviour
     private IEnumerator lightEffects()
     {
         shouldRotate = true;
+        ceilingLightSound.Play();
         yield return new WaitForSeconds(0.2f);
         statueRoomLights.SetActive(true);
         yield return new WaitForSeconds(0.2f);
