@@ -48,9 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
     public ItemSprite itemHeld;
 
+    private Vector3 resetPosistion;
+
     // Start is called before the first frame update
     void Start()
     {
+        resetPosistion = transform.position;
         rb = GetComponent<Rigidbody>();
         playerInput.currentActionMap.Enable();
         Movement = playerInput.currentActionMap.FindAction("Movement");
@@ -220,6 +223,11 @@ public class PlayerMovement : MonoBehaviour
             PausePopUp.SetActive(true);
         }
 
+    }
+
+    public void OnReset()
+    {
+        transform.position = resetPosistion;
     }
 
     private void OnTriggerEnter(Collider other)
