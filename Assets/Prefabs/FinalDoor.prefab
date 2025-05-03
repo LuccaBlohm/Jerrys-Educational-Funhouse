@@ -264,6 +264,9 @@ MonoBehaviour:
   player: {fileID: 0}
   _rejectSound: {fileID: 0}
   _acceptSound: {fileID: 4819220628374854483}
+  popUpConnection: {fileID: 0}
+  errorPopUp: {fileID: 7493661246226108335, guid: d4d95244cb3771d4f9720635936827b0, type: 3}
+  canvasTransform: {fileID: 0}
   animator: {fileID: 0}
   FinalExit: {fileID: 0}
 --- !u!95 &1442580887343268427
