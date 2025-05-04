@@ -18,7 +18,7 @@ public class TestJerry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        statueRoomLights = GameObject.Find("StatueRoomAfterWirePuzzle");
+
     }
 
     public void activation()
