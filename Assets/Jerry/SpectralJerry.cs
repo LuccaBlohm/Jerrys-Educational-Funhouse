@@ -32,6 +32,11 @@ public class SpectralJerry : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 0.1f); //use scare range from the !scareplayed if statement
+        }
 
         localPosition = player.transform.position - transform.position;
 
@@ -43,10 +48,12 @@ public class SpectralJerry : MonoBehaviour
         {
             StartCoroutine(breeze()); //breeze woosh
         }
-        if (!scarePlayed && dist < 0.05f)
+
+        if (!scarePlayed && dist < 2f)
         {
             StartCoroutine(jumpScare());//play jumpscare
         }
+
         if (localPosition.magnitude >= teleportThreshold && TPcooldown > 10f)
         {
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
@@ -74,10 +81,55 @@ public class SpectralJerry : MonoBehaviour
 
     IEnumerator jumpScare()
     {
+        Debug.Log("JumpScare triggered at dist: " + dist);
         scarePlayed = true;
         jumpScareAudio.Play();
-        yield return new WaitForSeconds(15f);
+        StartCoroutine(ShakeCamera());
+        Time.timeScale = 0.3f;
+        yield return new WaitForSecondsRealtime(5f); //TIME MOVES SLOW FOR A LIL BIT :)
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(5f);
+
+        //Tp JERRY AGAIN    
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        Vector3 offset = Vector3.up * 0.5f + Vector3.right * Random.Range(-1f, 1f);
+        transform.position = player.transform.position - directionToPlayer * teleportDistance + offset;
+        TPcooldown = 0;
+
         scarePlayed = false;
+
+
+    }
+
+
+    public float duration = 2f;
+    public float magnitude = 0.5f;
+
+    public Transform cameraTransform;
+
+    IEnumerator ShakeCamera()
+    {
+        if (cameraTransform == null)
+        {
+            Debug.LogWarning("Camera Transform not assigned");
+            yield break;
+        }
+
+        Debug.Log("shake");
+        Vector3 originalPos = cameraTransform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            cameraTransform.localPosition = originalPos + new Vector3(x, y, 0);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cameraTransform.localPosition = originalPos;
     }
 
 
