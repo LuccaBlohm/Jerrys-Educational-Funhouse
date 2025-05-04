@@ -34,22 +34,35 @@ public class WaterBender : MonoBehaviour //, IInteractable
         }
     }*/
 
+
+    bool iceBallActive = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ice Ball")
         {
             isFrozen = true;
+            iceBallActive = true;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (pm.isInWaterEffectZone && !iceBallActive)
         {
-            if (pm.itemHeld == iceBall)
-            {
-                isFrozen = false;
-            }
+            isFrozen = false;
+        }
+
+        if (pm.itemHeld == iceBall)
+        {
+            iceBallActive = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.gameObject.tag == "Player" || !pm.isInWaterEffectZone))
+        {
+            isFrozen = true;
         }
     }
 
@@ -67,11 +80,6 @@ public class WaterBender : MonoBehaviour //, IInteractable
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!pm.isInWaterEffectZone)
-        {
-            isFrozen = false;
-        }*/
 
         foreach (GameObject cube in cubeList)
         {
