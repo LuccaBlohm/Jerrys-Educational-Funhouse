@@ -15,6 +15,7 @@ public class PortalTeleporterScript : MonoBehaviour
     {
         if(playerOverlap)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
             
