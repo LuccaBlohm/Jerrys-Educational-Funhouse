@@ -21,6 +21,7 @@ public class PianoPuzzle : MonoBehaviour
     public bool ppBegin = false;
 
     private AudioSource spotlightOn;
+    public AudioSource ppComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,7 @@ public class PianoPuzzle : MonoBehaviour
                     spotlights[3].SetActive(false);
                     StartCoroutine(MoveLeverPanel());
                     StartCoroutine(SpotlightsRotate());
+                    ppComplete.Play();
                 }
             }
         }
