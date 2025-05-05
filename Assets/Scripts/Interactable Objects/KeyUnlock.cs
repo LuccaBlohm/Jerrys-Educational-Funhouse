@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyUnlock : ItemInteract
 {
@@ -47,5 +48,7 @@ public class KeyUnlock : ItemInteract
         Debug.Log("Coroutine started!");
         yield return new WaitForSeconds(0.6f);
         FinalExit.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(2);
     }
 }
