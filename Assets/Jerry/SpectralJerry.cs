@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpectralJerry : MonoBehaviour
+public class SpectralJerry : ItemInteract
 {
 
     public GameObject player;
@@ -56,10 +56,7 @@ public class SpectralJerry : MonoBehaviour
 
         if (localPosition.magnitude >= teleportThreshold && TPcooldown > 10f)
         {
-            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-            Vector3 offset = Vector3.up * 0.5f + Vector3.right * Random.Range(-1f, 1f);
-            transform.position = player.transform.position - directionToPlayer * teleportDistance + offset;
-            TPcooldown = 0;
+            teleport();
         }
 
         localPosition = localPosition.normalized; // The normalized direction in LOCAL space
@@ -69,6 +66,19 @@ public class SpectralJerry : MonoBehaviour
         transform.Translate(localPosition.x * Time.deltaTime * speed, localPosition.y * Time.deltaTime * speed, localPosition.z * Time.deltaTime * speed);
 
         TPcooldown += Time.deltaTime;
+    }
+
+    private void teleport()
+    {
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        Vector3 offset = Vector3.up * 0.5f + Vector3.right * Random.Range(-1f, 1f);
+        transform.position = player.transform.position - directionToPlayer * teleportDistance + offset;
+        TPcooldown = 0;
+    }
+
+    protected override void interactableBehavior()
+    {
+        teleport();
     }
 
     IEnumerator breeze()

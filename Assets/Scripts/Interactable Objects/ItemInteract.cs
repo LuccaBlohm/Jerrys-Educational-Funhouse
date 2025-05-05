@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemInteract : MonoBehaviour, IInteractable, IPopUpSpawner
 {
     [SerializeField] private ItemSprite key;
-    [SerializeField] private PlayerMovement player;
+    [SerializeField] private PlayerMovement playerScript;
     [SerializeField] protected AudioSource _rejectSound;
     [SerializeField] protected AudioSource _acceptSound;
 
@@ -12,16 +12,20 @@ public class ItemInteract : MonoBehaviour, IInteractable, IPopUpSpawner
     [SerializeField] protected RectTransform canvasTransform;
     private Canvas popUpCanvas;
     private bool popUpOn;
+    [SerializeField] private bool resetAudio = true;
 
     public void OnInteract()
     {
-        if (key == player.itemHeld)
+        if (key == playerScript.itemHeld)
         {
             if (_acceptSound != null)
             {
                 _acceptSound.Play();
-                _acceptSound = null;
-                _rejectSound = null;
+                if (resetAudio)
+                {
+                    _acceptSound = null;
+                    _rejectSound = null;
+                }
                 popUpOn = true;
             }
 
