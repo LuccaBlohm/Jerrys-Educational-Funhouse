@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,5 +18,6 @@ public class ExitDoorCrash : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene(2);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

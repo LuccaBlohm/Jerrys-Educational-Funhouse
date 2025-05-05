@@ -18,7 +18,7 @@ public class SwitchManager : MonoBehaviour
     public bool e = false;
 
     public GameObject FinalDoor;
-
+    public GameObject InfinityTeleporter;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class SwitchManager : MonoBehaviour
         if (a && b && c && d && e) //only here for debugging, normally done from leverflip
         {
             FinalDoor.SetActive(true);
+            InfinityTeleporter.SetActive(false);
             StartCoroutine(DelayedRefresh(FinalDoor));
         }
     }
@@ -81,6 +82,7 @@ public class SwitchManager : MonoBehaviour
         if (a && b && c && d && e)
         {
             FinalDoor.SetActive(true);
+            InfinityTeleporter.SetActive(false);
             StartCoroutine(DelayedRefresh(FinalDoor));
         }
         OnStateChanged?.Invoke(a, b, c, d, e);
