@@ -81,8 +81,11 @@ MonoBehaviour:
     Right Click to drop items!
 
 
-    And
-    most importantly:
+    R
+    to return to classroom!
+
+
+    And most importantly:
 
     Have fun!'
   m_isRightToLeft: 0
@@ -459,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 331.1009
+      value: 372.9884
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.9829
+      value: -54.870426
       objectReference: {fileID: 0}
     - target: {fileID: 2666970051098575676, guid: b76a8170690a8014e9ee8fdc6bc2ec0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
