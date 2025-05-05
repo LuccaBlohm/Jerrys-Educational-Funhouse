@@ -3845,8 +3845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -348, y: 111}
-  m_SizeDelta: {x: 443.299, y: 70.025604}
+  m_AnchoredPosition: {x: -342.8026, y: 111}
+  m_SizeDelta: {x: 451.7158, y: 70.0256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564096606
 MonoBehaviour:
@@ -3879,7 +3879,9 @@ MonoBehaviour:
     LMB
     - Interact
 
-    RMB - Drop Items'
+    RMB - Drop Items
+
+    R - Return to Classroom'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3dda61819b46a72449b6543631333806, type: 2}
   m_sharedMaterial: {fileID: -2048856731834153032, guid: 3dda61819b46a72449b6543631333806, type: 2}
