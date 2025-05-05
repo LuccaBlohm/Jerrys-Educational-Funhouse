@@ -97,6 +97,7 @@ public class SpectralJerry : MonoBehaviour
         TPcooldown = 0;
 
         scarePlayed = false;
+        gameObject.SetActive(false);
 
 
     }
